@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Cookies from 'js-cookie'
 import Router from 'next/router'
 import { I18nextProvider } from 'react-i18next'
+import Head from 'next/head'
 
 import Header from './Header'
 import fetch from '../tools/fetch'
@@ -77,54 +78,20 @@ export default (Page)=>class Layout extends React.Component {
 
   render(){
     var props = {
-        login: this.handleLogin.bind(this),
-        logout: this.handleLogout.bind(this),
         ...this.props,
         ...this.state
     }
-    return <I18nextProvider i18n={this.i18n}>
-      <div style={layoutStyle}>
+    return <I18nextProvider i18n={this.i18n}>      
+      <div className="container">
+        <Head>
+          <title>React Builder</title>
+          <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css" />
+        </Head>
         <Header {...props} />
         <Page {...props} />
       </div>
     </I18nextProvider>
   } 
-
-  handleLogin(username,passwd){
-    var form = JSON.stringify({username,passwd})
-    
-    fetch(apiUrls('/api/auth'),{
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: form
-    })
-    .then(r=>r.json())
-    .then((user)=>{
-      if(user.error){
-        return Promise.reject(user.error)
-      }
-      return user
-    })
-    .then((user)=>{      
-      user.isGuest = false
-      this.setState({user})
-      Router.push('/')
-    })
-    .catch((err)=>{
-      console.log(err)
-      alert(err)
-    })    
-  }
-
-  handleLogout(){      
-    this.setState({user:{
-      isGuest: true,
-    }})
-    Cookies.remove('user')
-    Router.push('/')
-  }
 }
 
 

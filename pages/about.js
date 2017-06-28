@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie'
+import { translate } from 'react-i18next'
 
 import Layout from '../components/MyLayout.js'
 import fetch from '../tools/fetch'
@@ -6,17 +7,9 @@ import apiUrls from '../tools/api-urls'
 
 const About = (props) => (
     <div>
-       <p>This is the about page</p>
-       <p>props: {JSON.stringify(props)}</p>
+       <p>{props.t('If you run into problems')} <a className="btn btn-default" href="https://github.com/nextjs-boilerplate/react-builder/issues/new">{props.t('new issue')}</a></p>
     </div>
 )
 
-About.getInitialProps = ({req,res})=>{
-    return fetch(apiUrls('/api/auth',req), {}, req, res)
-    .then(r=>r.json())
-    .then((user)=>{
-        return {about:{user, cookieDate: Cookies.get('date')}}
-    })
-}
 
-export default Layout(About)
+export default Layout(translate(['about'])(About))

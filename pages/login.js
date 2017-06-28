@@ -5,11 +5,6 @@ import fetch from '../tools/fetch'
 import apiUrls from '../tools/api-urls'
 
 class Login extends React.Component {
-    
-    static propTypes = {
-        user: PropTypes.object.isRequired,
-        login: PropTypes.func.isRequired,
-    }
 
     render() {
         const {user} = this.props
@@ -36,16 +31,10 @@ class Login extends React.Component {
     }
 
     handleLogin(){
-        this.props.login(this.refs.username.value, this.refs.passwd.value)
+        
     }
 
-    static async getInitialProps({req,res}){
-        return await fetch(apiUrls('/api/auth',req), {}, req, res)
-        .then(r=>r.json())
-        .then((user)=>{
-            return {loginuser:user}
-        })
-    }
+    
 }
 
 

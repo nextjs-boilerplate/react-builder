@@ -1,5 +1,5 @@
 
-import { translate } from 'react-i18next';
+import { translate } from 'react-i18next'
 import Layout from '../components/MyLayout.js'
 import {Link} from '../tools/routes'
 import i18nHelper from '../tools/i18n-helper'
@@ -19,8 +19,7 @@ const Index = (props) => {
       <Link route='post'  params={{title: 'Hello Next.js'}} >
         <a>{t('See my first post')} >></a>
       </Link>
-    </p>
-    
+    </p>    
   </div>
 )}
 

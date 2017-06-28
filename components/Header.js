@@ -10,16 +10,6 @@ import i18nHelper from '../tools/i18n-helper'
 const MyNav = getNavigation(routes)
 
 
-const linkStyle = {
-  marginRight: 15
-}
-
-
-const activeStyle = {
-  color: 'red',
-  backgroundColor: '#ddd',
-}
-
 class Header extends React.Component {
 
   handleChangeLanguage(e){
@@ -31,24 +21,21 @@ class Header extends React.Component {
 
     var tprops = {
       ulProps: {
-        className: 'mynav',
+        className: 'nav nav-tabs',
+      },
+      liProps: {
+        className: 'nav-item',
       },
       links: this.getLinks(t),
-      activeStyle,
-      activeClassName: 'on',
+      activeClassName: 'active',
       url,
     }
-    return (<div className="nav-wrap">
+    return (<div className="clearfix">
+      <select value={i18nHelper.getCurrentLanguage()} onChange={this.handleChangeLanguage.bind(this)} className="pull-right">
+        <option value="en">English</option>
+        <option value="zh">中文</option>
+      </select>
       <MyNav {...tprops} />
-      <style jsx>{`
-          .nav-wrap :global(.mynav) {
-            border: 1px solid black;
-          }
-
-          .nav-wrap :global(.mynav .on a) {
-            font-weight: bold;
-          }
-        `}</style>
     </div>
     )
   }
@@ -58,30 +45,17 @@ class Header extends React.Component {
     var {user, logout} = this.props
     return [{
       linkProps: { route: "index" },
-      children: <a style={linkStyle}>{t('Home')}</a>,
+      children: <a className="nav-link">{t('Project List')}</a>,
     }, {
       linkProps: { route: "about" },
-      children: <a style={linkStyle}>{t('About')}</a>,
+      children: <a className="nav-link">{t('About')}</a>,
       activeStyle: { color: 'blue', },
     }, {
       linkProps: { route: "posts" },
-      children: <a style={linkStyle}>{t('Posts')}</a>,
+      children: <a className="nav-link">{t('Posts')}</a>,
       checkIsActive: ({ pathname }) => {
         return ('/post' === pathname) || ('/posts' === pathname)
       }
-    },
-    (user && user.username) ? {
-      nolink: true,
-      children: <a style={linkStyle} onClick={logout}>{t('Logout')}</a>,
-    } : {
-      linkProps: { route: "login" },
-      children: <a style={linkStyle}>{t('Login')}</a>,
-    }, {
-      nolink: true,
-      children: (<select value={i18nHelper.getCurrentLanguage()} onChange={that.handleChangeLanguage.bind(that)}>
-        <option value="en">English</option>
-        <option value="zh">中文</option>
-      </select>),
     }]
   }
 
