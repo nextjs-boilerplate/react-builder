@@ -1,4 +1,7 @@
 {
-  "Project List": "Project List",
-  "About": "About"
+  "Home": "Home",
+  "About": "About",
+  "Login": "Login",
+  "Logout": "Logout",
+  "Posts": "Posts"
 }

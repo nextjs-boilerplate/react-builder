@@ -1,13 +1,12 @@
 
 import { translate } from 'react-i18next'
-import Layout from '../components/MyLayout.js'
-import {Link} from '../tools/routes'
-import i18nHelper from '../tools/i18n-helper'
+import Layout from '../components/Layout.js'
+import { Link } from '../tools/routes'
 
-const translateNS = 'index'
+const translateNS = ['index']
 
-const Index = (props) => {  
-  const {t} = props
+const Index = (props) => {
+  const { t } = props
   return (<div>
     <h1>{t('My Blog')}</h1>
     <p>
@@ -16,15 +15,15 @@ const Index = (props) => {
       </Link>
     </p>
     <p>
-      <Link route='post'  params={{title: 'Hello Next.js'}} >
+      <Link route='post' params={{ title: 'Hello Next.js' }} >
         <a>{t('See my first post')} >></a>
       </Link>
-    </p>    
-  </div>
-)}
+    </p>
 
-Index.getInitialProps = function() {
-  return Promise.resolve({translateNS:[translateNS]})
+  </div>
+  )
 }
 
-export default Layout(translate(['index'])(Index))
+Index.translateNS = translateNS
+
+export default Layout(translate(translateNS)(Index))
