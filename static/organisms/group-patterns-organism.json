@@ -1,0 +1,16 @@
+[
+  {
+    "title": "image-logo",
+    "description": "the logo image",
+    "datas": {
+      "default": {
+        "src": "/static/atoms/logo/logo.svg",
+        "alt": "pisfot"
+      }
+    },
+    "fetch": {
+      "type": "redux",
+      "dataPath": "app.locals.logo"
+    }
+  }
+]

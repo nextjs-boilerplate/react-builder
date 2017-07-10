@@ -1,0 +1,30 @@
+[
+  {
+    "title": "image-logo",
+    "description": "the logo image",
+    "datas": {
+      "default": {
+        "src": "/static/atoms/logo/logo.svg",
+        "alt": "pisfot"
+      }
+    },
+    "fetch": {
+      "type": "redux",
+      "dataPath": "app.locals.logo"
+    }
+  },
+  {
+    "title": "progress",
+    "description": "the progress bar",
+    "datas": {
+      "default": {
+        "max": 100,
+        "value": 43,
+        "label": "some text"
+      }
+    },
+    "fetch": {
+      "type": "props"
+    }
+  }
+]

@@ -1,29 +1,52 @@
 
-import { translate } from 'react-i18next'
-import Layout from '../components/Layout.js'
-import { Link } from '../tools/routes'
 
-const translateNS = ['index']
+import { connect } from 'react-redux'
+import { Grid, Row, Col, Panel, ListGroup, ListGroupItem } from 'react-bootstrap'
+
+import Layout from '../components/Layout.js'
+import GroupPatterns from '../components/organisms/GroupPatterns'
+
+import { Link } from '../tools/routes'
+import data from '../static/pages/index'
+import { setJSON, getPath } from '../tools/store/json'
+
+const currentPatternGroupPath = 'app.global.current.patternGroup'
 
 const Index = (props) => {
-  const { t } = props
+  const { dispatch, currentPatternGroup } = props
+  const setCurrentPatternGroup = (g) => {
+    if (currentPatternGroup && currentPatternGroup.key === g.key) {
+      dispatch(setJSON(null, currentPatternGroupPath))
+      return
+    }
+    dispatch(setJSON(g, currentPatternGroupPath))
+  }
   return (<div>
-    <h1>{t('My Blog')}</h1>
-    <p>
-      <Link route='posts'>
-        <a>{t('See my posts')} >></a>
-      </Link>
-    </p>
-    <p>
-      <Link route='post' params={{ title: 'Hello Next.js' }} >
-        <a>{t('See my first post')} >></a>
-      </Link>
-    </p>
+    <h1>React Builder <small><a href="https://github.com/nextjs-boilerplate/react-builder/issues/new" target="_blank">issue</a></small></h1>
+
+    <Grid>
+      <Row>
+        <Col xs={4} md={4}>
+          <ListGroup>
+            {data.patternGroups.map((patternGroup) => {
+              return (currentPatternGroup && currentPatternGroup.key === patternGroup.key) ?
+                <ListGroupItem key={patternGroup.key} header={patternGroup.title} onClick={() => setCurrentPatternGroup(patternGroup)}>{patternGroup.description}</ListGroupItem> :
+                <ListGroupItem key={patternGroup.key} onClick={() => setCurrentPatternGroup(patternGroup)}>{patternGroup.title}</ListGroupItem>
+            })}
+          </ListGroup>
+        </Col>
+        <Col xs={8} md={8}>
+          {!!currentPatternGroup && <GroupPatterns group={currentPatternGroup} />}
+        </Col>
+      </Row>
+    </Grid>
 
   </div>
   )
 }
 
-Index.translateNS = translateNS
-
-export default Layout(translate(translateNS)(Index))
+export default Layout(connect(state => {
+  return {
+    currentPatternGroup: getPath(state, currentPatternGroupPath),
+  }
+})(Index))

@@ -6,20 +6,16 @@ import getNavigation from 'next-navigation'
 import { connect } from 'react-redux'
 
 import { default as routes, Link } from '../tools/routes'
-import i18nHelper from '../tools/i18n-helper'
-import { getUser, logout} from '../tools/store/user'
+import { getUser, logout } from '../tools/store/user'
 import { getContextedFetch } from '../tools/fetch'
+import Language from './molecules/Language'
 
 const MyNav = getNavigation(routes)
 
 class Header extends React.Component {
 
-  handleChangeLanguage(e) {
-    i18nHelper.setCurrentLanguage(e.target.value);
-  }
-
-  handleLogout(){
-    var {dispatch} = this.props
+  handleLogout() {
+    var { dispatch } = this.props
     dispatch(logout())
   }
 
@@ -28,32 +24,24 @@ class Header extends React.Component {
 
     var tprops = {
       ulProps: {
-        className: 'mynav',
+        className: 'nav nav-tabs',
       },
       links: this.getLinks(t),
       activeStyle: {},
-      activeClassName: 'on',
+      activeClassName: 'active',
       url,
     }
-    return (<div className="nav-wrap">
-      <MyNav {...tprops} />
-      <p>{JSON.stringify(user)}</p>
-      <style jsx>{`
-          .nav-wrap :global(.mynav) {
-            border: 1px solid black;
-          }
-
-          .nav-wrap :global(.mynav .on a) {
-            font-weight: bold;
-          }
-        `}</style>
-    </div>
+    return (
+      <div className="nav-wrap">
+        <MyNav {...tprops} />
+        <p>{JSON.stringify(user)}</p>
+      </div>
     )
   }
 
   getLinks(t) {
     var that = this
-    var { user, dispatch} = this.props
+    var { user, dispatch } = this.props
     return [{
       linkProps: { route: "index" },
       children: <a >{t('Home')}</a>,
@@ -76,24 +64,19 @@ class Header extends React.Component {
         children: <a >{t('Login')}</a>,
       }, {
       nolink: true,
-      children: (<select value={i18nHelper.getCurrentLanguage()} onChange={that.handleChangeLanguage.bind(that)}>
-        <option value="en">English</option>
-        <option value="zh">中文</option>
-      </select>),
+      liProps: {
+        style: {
+          paddingTop: '3px',
+        },
+        className:'pull-right',
+      },
+      children: (<Language />),
     }]
   }
 
 
 
   static translateNS = ['common']
-  static async getInitialProps(ctx) {
-    const { store } = ctx
-    return await store.dispatch(getUser(getContextedFetch(ctx),store))
-    .catch((e)=>{
-      console.log('store.dispatch(getUser(fetch)) failed')
-      console.log(e)
-    })
-  }
 }
 
 export default connect(state => state)(translate(Header.translateNS)(Header))

@@ -5,21 +5,21 @@ import wrapper from '../tools/wrapper'
 
 const layout = (Page) => wrapper(class Layout extends React.Component {
   render() {
-    return (<div className="wrapper">
+    return (<div className="container">
       <Head>
-          <title>React Builder</title>
-          <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css" />
+        <title>React Builder</title>
+        <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css" />
       </Head>
       <Header />
-      <Page {...this.props}/>
+      <Page {...this.props} />
     </div>)
   }
   static translateNS = [...Header.translateNS, ...Page.translateNS || []]
   static getInitialProps = async (ctx) => {
-    return await Promise.all([
-      Header.getInitialProps(ctx),
+    var p = await Promise.all([
       Page.getInitialProps ? Page.getInitialProps(ctx) : Promise.resolve(true),
     ])
+    return { isServer: ctx.isServer }
   }
 })
 

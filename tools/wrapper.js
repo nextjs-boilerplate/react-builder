@@ -23,7 +23,10 @@ export default (Page) => reduxWrapper(i18nWrapper(connect()(class MyWrapper exte
   static async getInitialProps(ctx) {
     var pageInitialProps = {}
     Page.getInitialProps && (pageInitialProps = await Page.getInitialProps(ctx))
-    return pageInitialProps
+    return {
+      ...pageInitialProps,
+      isServer: ctx.isServer
+    }
   }
 
   static translateNS = Page.translateNS

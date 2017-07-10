@@ -1,0 +1,25 @@
+{
+  "patternGroups":[
+    {
+      "title": "Atoms", 
+      "key": "atom", 
+      "description":"Atoms are the basic building blocks of all matter. Each chemical element has distinct properties, and they can’t be broken down further without losing their meaning"
+    },{
+      "title": "Molecules",
+      "key": "molecule", 
+      "description":"Molecules are groups of two or more atoms held together by chemical bonds. These combinations of atoms take on their own unique properties, and become more tangible and operational than atoms"
+    },{
+      "title": "Organisms",
+      "key": "organism", 
+      "description":"Organisms are assemblies of molecules functioning together as a unit. These relatively complex structures can range from single-celled organisms all the way up to incredibly sophisticated organisms like human beings."
+    },{
+      "title": "Templates",
+      "key": "template", 
+      "description":"Templates place components within a layout and demonstrate the design’s underlying content structure"
+    },{
+      "title": "Pages",
+      "key": "page", 
+      "description":"Pages apply real content to templates and articulate variations to demonstrate the final UI and test the resilience of the design system"
+    }
+  ]
+}
