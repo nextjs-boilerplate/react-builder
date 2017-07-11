@@ -61,16 +61,17 @@ export function getPath(obj, pathStr) {
  * @param {any} toMerge 
  * @returns 
  */
-function pathMerge(obj, pathStr, toMerge) {
+export function pathMerge(obj, pathStr, toMerge) {
   const pathArr = pathStr.split('.')
   const lastPath = pathArr.pop()
+  const tobj = {...obj}
   const lastBranch = pathArr.reduce((o, p) => {
     !o[p] && (o[p] = {})
     o[p] = {...o[p]}
     return o[p]
-  }, obj)
+  }, tobj)
   lastBranch[lastPath] = toMerge
-  return obj
+  return tobj
 }
 
 /**
