@@ -30,12 +30,13 @@ class FakeTag extends React.Component {
 
   renderContainer() {
     const { children, tag, path, handleAddChild } = this.props
+    const pathPrifix = path?`${path}.`:''
     return (<div>
       <p><code>{`<${tag}>`}</code></p>
       <ul>
         {!!children && children.map((x, i) => (<li key={i}>
           <Button onClick={()=>this.handleAddChild(i)}><Glyphicon glyph="plus" /></Button>
-          <FakeTag {...x} path={`${path}.children.${i}`} handleAddChild={handleAddChild} />
+          <FakeTag {...x} path={`${pathPrifix}children.${i}`} handleAddChild={handleAddChild} />
         </li>))}
         <li><Button onClick={()=>this.handleAddChild(children?children.length:0)}><Glyphicon glyph="plus" /></Button></li>
       </ul>

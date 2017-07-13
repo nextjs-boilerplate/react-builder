@@ -67,6 +67,10 @@ export function pathMerge(obj, pathStr, toMerge) {
   const tobj = {...obj}
   const lastBranch = pathArr.reduce((o, p) => {
     !o[p] && (o[p] = {})
+    if(Array.isArray(o[p])){      
+      o[p] = [...o[p]]
+      return o[p]
+    }
     o[p] = {...o[p]}
     return o[p]
   }, tobj)

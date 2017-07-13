@@ -1,6 +1,7 @@
 
 import Layout from '../components/Layout.js'
 import FakeTagContainer from '../components/editor/FakeTagContainer'
+import TreeTest from '../components/tree/TestTree'
 
 const Component = (props) => {  
   return (<div>
@@ -10,7 +11,7 @@ const Component = (props) => {
         <FakeTagContainer />
       </div>
       <div className="col-xs-4">
-col-xs-4
+        <TreeTest />
       </div>
     </div> 
   </div>

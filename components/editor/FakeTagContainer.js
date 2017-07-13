@@ -21,7 +21,7 @@ class FakeTagContainer extends React.Component {
     const childrenPath = path?`${path}.children`:'children'
     console.log(['childrenPath',childrenPath])
     const children = [...getPath(root, childrenPath) || []]
-    children.splice(index,0,[child])
+    children.splice(index,0,child)
     const newRoot = pathMerge(root,childrenPath,children)
     dispatch(setJSON(newRoot,currentEditorFakeTagRootPath))
   }
