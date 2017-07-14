@@ -1,0 +1,558 @@
+{
+  "text": {
+    "desc": "pure text, not really a HTML tag",
+    "type": "container",
+    "group": "Basic"
+  },
+  "h1": {
+    "desc": "Defines HTML heading 1",
+    "type": "container",
+    "group": "Basic HTML"
+  },
+  "h2": {
+    "desc": "Defines HTML heading 2",
+    "type": "container",
+    "group": "Basic HTML"
+  },
+  "h3": {
+    "desc": "Defines HTML heading 3",
+    "type": "container",
+    "group": "Basic HTML"
+  },
+  "h4": {
+    "desc": "Defines HTML heading 4",
+    "type": "container",
+    "group": "Basic HTML"
+  },
+  "h5": {
+    "desc": "Defines HTML heading 5",
+    "type": "container",
+    "group": "Basic HTML"
+  },
+  "h6": {
+    "desc": "Defines HTML heading 6",
+    "type": "container",
+    "group": "Basic HTML"
+  },
+  "p": {
+    "desc": "Defines a paragraph",
+    "type": "container",
+    "group": "Basic HTML"
+  },
+  "br": {
+    "desc": "Inserts a single line break",
+    "type": "element",
+    "group": "Basic HTML"
+  },
+  "hr": {
+    "desc": "Defines a thematic change in the content",
+    "type": "element",
+    "group": "Basic HTML"
+  },
+  "abbr": {
+    "desc": "Defines an abbreviation or an acronym",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "address": {
+    "desc": "Defines contact information for the author/owner of a document/article",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "b": {
+    "desc": "Defines bold text",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "blockquote": {
+    "desc": "Defines a section that is quoted from another source",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "cite": {
+    "desc": "Defines the title of a work",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "code": {
+    "desc": "Defines a piece of computer code",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "del": {
+    "desc": "Defines text that has been deleted from a document",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "dfn": {
+    "desc": "Represents the defining instance of a term",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "em": {
+    "desc": "Defines emphasized text",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "i": {
+    "desc": "Defines a part of text in an alternate voice or mood",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "ins": {
+    "desc": "Defines a text that has been inserted into a document",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "kbd": {
+    "desc": "Defines keyboard input",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "mark": {
+    "desc": "Defines marked/highlighted text",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "meter": {
+    "desc": "Defines a scalar measurement within a known range (a gauge)",
+    "type": "container",
+    "group": "Formatting",
+    "props": {
+      "value": "number",
+      "max": "number",
+      "min": "number"
+    }
+  },
+  "pre": {
+    "desc": "Defines preformatted text",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "progress": {
+    "desc": "Represents the progress of a task",
+    "type": "container",
+    "group": "Formatting",
+    "props": {
+      "value": "number",
+      "max": "number"
+    }
+  },
+  "q": {
+    "desc": "Defines a short quotation",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "rp": {
+    "desc": "Defines what to show in browsers that do not support ruby annotations",
+    "type": "container",
+    "group": "Formatting",
+    "parent": [
+      "ruby"
+    ]
+  },
+  "rt": {
+    "desc": "Defines an explanation/pronunciation of characters (for East Asian typography)",
+    "type": "container",
+    "group": "Formatting",
+    "parent": [
+      "ruby"
+    ]
+  },
+  "ruby": {
+    "desc": "Defines a ruby annotation (for East Asian typography)",
+    "type": "container",
+    "group": "Formatting",
+    "children": [
+      "rt",
+      "rp"
+    ]
+  },
+  "s": {
+    "desc": "Defines text that is no longer correct",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "samp": {
+    "desc": "Defines sample output from a computer program",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "small": {
+    "desc": "Defines smaller text",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "strong": {
+    "desc": "Defines important text",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "sub": {
+    "desc": "Defines subscripted text",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "sup": {
+    "desc": "Defines superscripted text",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "time": {
+    "desc": "Defines a date/time",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "u": {
+    "desc": "Defines text that should be stylistically different from normal text",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "var": {
+    "desc": "Defines a variable",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "wbr": {
+    "desc": "Defines a possible line-break",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "form": {
+    "desc": "Defines an HTML form for user input",
+    "type": "container",
+    "group": "Forms and Input"
+  },
+  "input": {
+    "desc": "Defines an input control",
+    "type": "element",
+    "group": "Forms and Input"
+  },
+  "textarea": {
+    "desc": "Defines a multiline input control (text area)",
+    "type": "element",
+    "group": "Forms and Input"
+  },
+  "button": {
+    "desc": "Defines a clickable button",
+    "type": "element",
+    "group": "Forms and Input"
+  },
+  "select": {
+    "desc": "Defines a drop-down list",
+    "type": "container",
+    "group": "Forms and Input",
+    "children": [
+      "option",
+      "optgroup"
+    ]
+  },
+  "optgroup": {
+    "desc": "Defines a group of related options in a drop-down list",
+    "type": "container",
+    "group": "Forms and Input",
+    "children": [
+      "option"
+    ]
+  },
+  "option": {
+    "desc": "Defines an option in a drop-down list",
+    "type": "container",
+    "group": "Forms and Input",
+    "parent": [
+      "select",
+      "optgroup",
+      "datalist"
+    ]
+  },
+  "label": {
+    "desc": "Defines a label for an <input> element",
+    "type": "container",
+    "group": "Forms and Input",
+    "props": {
+      "for": "string"
+    }
+  },
+  "fieldset": {
+    "desc": "Groups related elements in a form",
+    "type": "container",
+    "group": "Forms and Input"
+  },
+  "legend": {
+    "desc": "Defines a caption for a <fieldset> element",
+    "type": "container",
+    "group": "Forms and Input",
+    "parent": [
+      "legend"
+    ]
+  },
+  "datalist": {
+    "desc": "Specifies a list of pre-defined options for input controls",
+    "type": "container",
+    "group": "Forms and Input"
+  },
+  "keygen": {
+    "desc": "Defines a key-pair generator field (for forms)",
+    "type": "element",
+    "group": "Forms and Input"
+  },
+  "output": {
+    "desc": "Defines the result of a calculation",
+    "type": "container",
+    "group": "Forms and Input"
+  },
+  "iframe": {
+    "desc": "Defines an inline frame",
+    "type": "element",
+    "group": "Frames"
+  },
+  "img": {
+    "desc": "Defines an image",
+    "type": "element",
+    "group": "Images"
+  },
+  "map": {
+    "desc": "Defines a client-side image-map",
+    "type": "container",
+    "group": "Images"
+  },
+  "area": {
+    "desc": "Defines an area inside an image-map",
+    "type": "container",
+    "group": "Images"
+  },
+  "canvas": {
+    "desc": "Used to draw graphics, on the fly, via scripting (usually JavaScript)",
+    "type": "container",
+    "group": "Images"
+  },
+  "figcaption": {
+    "desc": "Defines a caption for a <figure> element",
+    "type": "container",
+    "group": "Images"
+  },
+  "figure": {
+    "desc": "Specifies self-contained content",
+    "type": "container",
+    "group": "Images"
+  },
+  "picture": {
+    "desc": "Defines a container for multiple image resources",
+    "type": "container",
+    "group": "Images"
+  },
+  "audio": {
+    "desc": "Defines sound content",
+    "type": "container",
+    "group": "Audio / Video"
+  },
+  "source": {
+    "desc": "Defines multiple media resources for media elements (<video>, <audio> and <picture>)",
+    "type": "element",
+    "group": "Audio / Video",
+    "props": {
+      "src": "string",
+      "type": "string"
+    }
+  },
+  "track": {
+    "desc": "Defines text tracks for media elements (<video> and <audio>)",
+    "type": "element",
+    "group": "Audio / Video"
+  },
+  "video": {
+    "desc": "Defines a video or movie",
+    "type": "container",
+    "group": "Audio / Video"
+  },
+  "a": {
+    "desc": "Defines a hyperlink",
+    "type": "container",
+    "group": "Links"
+  },
+  "link": {
+    "desc": "Defines the relationship between a document and an external resource (most used to link to style sheets)",
+    "type": "element",
+    "group": "Formatting"
+  },
+  "nav": {
+    "desc": "Defines navigation links",
+    "type": "container",
+    "group": "Formatting"
+  },
+  "ul": {
+    "desc": "Defines an unordered list",
+    "type": "container",
+    "group": "Lists",
+    "children": [
+      "li"
+    ]
+  },
+  "ol": {
+    "desc": "Defines an ordered list",
+    "type": "container",
+    "group": "Lists",
+    "children": [
+      "li"
+    ]
+  },
+  "li": {
+    "desc": "Defines a list item",
+    "type": "container",
+    "group": "Lists",
+    "parent": [
+      "ul",
+      "ol"
+    ]
+  },
+  "dl": {
+    "desc": "Defines a description list",
+    "type": "container",
+    "group": "Lists",
+    "children": [
+      "dt",
+      "dd"
+    ]
+  },
+  "dt": {
+    "desc": "Defines a term/name in a description list",
+    "type": "container",
+    "group": "Lists",
+    "parent": [
+      "dl"
+    ]
+  },
+  "dd": {
+    "desc": "Defines a description of a term/name in a description list",
+    "type": "container",
+    "group": "Lists",
+    "parent": [
+      "dl"
+    ]
+  },
+  "menu": {
+    "desc": "Defines a list/menu of commands",
+    "type": "container",
+    "group": "Lists"
+  },
+  "menuitem": {
+    "desc": "Defines a command/menu item that the user can invoke from a popup menu",
+    "type": "container",
+    "group": "Lists"
+  },
+  "table": {
+    "desc": "Defines a table",
+    "type": "container",
+    "group": "Tables"
+  },
+  "caption": {
+    "desc": "Defines a table caption",
+    "type": "container",
+    "group": "Tables"
+  },
+  "th": {
+    "desc": "Defines a header cell in a table",
+    "type": "container",
+    "group": "Tables"
+  },
+  "tr": {
+    "desc": "Defines a row in a table",
+    "type": "container",
+    "group": "Tables"
+  },
+  "td": {
+    "desc": "Defines a cell in a table",
+    "type": "container",
+    "group": "Tables"
+  },
+  "thead": {
+    "desc": "Groups the header content in a table",
+    "type": "container",
+    "group": "Tables"
+  },
+  "tbody": {
+    "desc": "Groups the body content in a table",
+    "type": "container",
+    "group": "Tables"
+  },
+  "tfoot": {
+    "desc": "Groups the footer content in a table",
+    "type": "container",
+    "group": "Tables"
+  },
+  "col": {
+    "desc": "Specifies column properties for each column within a <colgroup> element",
+    "type": "container",
+    "group": "Tables"
+  },
+  "colgroup": {
+    "desc": "Specifies a group of one or more columns in a table for formatting",
+    "type": "container",
+    "group": "Tables"
+  },
+  "style": {
+    "desc": "Defines style information for a document",
+    "type": "container",
+    "group": "Styles and Semantics"
+  },
+  "div": {
+    "desc": "Defines a section in a document",
+    "type": "container",
+    "group": "Styles and Semantics"
+  },
+  "span": {
+    "desc": "Defines a section in a document",
+    "type": "container",
+    "group": "Styles and Semantics"
+  },
+  "header": {
+    "desc": "Defines a header for a document or section",
+    "type": "container",
+    "group": "Styles and Semantics"
+  },
+  "footer": {
+    "desc": "Defines a footer for a document or section",
+    "type": "container",
+    "group": "Styles and Semantics"
+  },
+  "main": {
+    "desc": "Specifies the main content of a document",
+    "type": "container",
+    "group": "Styles and Semantics"
+  },
+  "section": {
+    "desc": "Defines a section in a document",
+    "type": "container",
+    "group": "Styles and Semantics"
+  },
+  "article": {
+    "desc": "Defines an article",
+    "type": "container",
+    "group": "Styles and Semantics"
+  },
+  "aside": {
+    "desc": "Defines content aside from the page content",
+    "type": "container",
+    "group": "Styles and Semantics"
+  },
+  "details": {
+    "desc": "Defines additional details that the user can view or hide",
+    "type": "container",
+    "group": "Styles and Semantics"
+  },
+  "dialog": {
+    "desc": "Defines a dialog box or window",
+    "type": "container",
+    "group": "Styles and Semantics"
+  },
+  "summary": {
+    "desc": "Defines a visible heading for a <details> element",
+    "type": "container",
+    "group": "Styles and Semantics"
+  },
+  "data": {
+    "desc": "Links the given content with a machine-readable translation",
+    "type": "container",
+    "group": "Styles and Semantics"
+  }
+}

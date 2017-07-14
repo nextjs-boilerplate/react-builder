@@ -37,6 +37,7 @@ class FakeTag extends React.Component {
         </li>))}
       </ul>
       <p><code>{`</${tag}>`}</code></p>
+      {}
     </div>)
   }
 

@@ -14,6 +14,7 @@ const Component = (props) => {
       </div>
     </div> 
   </div>
+  
 )}
 
 export default Layout(Component)
