@@ -1,6 +1,8 @@
 import React from 'react'
 import { Glyphicon } from 'react-bootstrap'
 
+import TagSelectModal from './TagSelectModal'
+
 export const tagTypes = {
   container: 'container',
   element: 'element',
@@ -9,6 +11,14 @@ export const tagTypes = {
 }
 
 class FakeTag extends React.Component {
+
+  constructor(props, ctx) {
+    super(props, ctx)
+    this.state = {
+      showAddTagModal: false,
+    }
+  }
+
   render() {
     const { data } = this.props
 
@@ -25,19 +35,20 @@ class FakeTag extends React.Component {
 
   renderContainer() {
     const { children, data = {} } = this.props
-    const { tag, } = data
-
+    const { tag } = data
+    const { showAddTagModal } = this.state
+    const { resolve, reject } = this
     return (<div>
       <p><code>{`<${tag}>`}</code></p>
       <ul>
         <li><a onClick={() => this.handleAddChild(0)}><Glyphicon glyph="plus" /></a></li>
         {!!children && children.map((x, i) => (<li key={i}>
           {x}
-          <a onClick={() => this.handleAddChild(i+1)}><Glyphicon glyph="plus" /></a>
+          <a onClick={() => this.handleAddChild(i + 1)}><Glyphicon glyph="plus" /></a>
         </li>))}
       </ul>
       <p><code>{`</${tag}>`}</code></p>
-      {}
+      {showAddTagModal && <TagSelectModal resolve={resolve} reject={reject} />}
     </div>)
   }
 
@@ -50,14 +61,31 @@ class FakeTag extends React.Component {
     const { updateData, data, } = this.props
     const { children = [] } = data
 
-    children.splice(index, 0, {
-      tag: 'div',
-      type: tagTypes.container
-    })
+    this.addTagModalPromise = new Promise((resolve, reject) => {
+      this.resolve = resolve
+      this.reject = reject
+      this.setState({
+        showAddTagModal: true,
+      })
+    }).then((obj) => {
+      console.log(obj)
 
-    updateData({
-      ...data,
-      children,
+      children.splice(index, 0, {
+        tag: 'div',
+        type: tagTypes.container
+      })
+
+      updateData({
+        ...data,
+        children,
+      })
+      this.setState({
+        showAddTagModal: false,
+      })
+    }).catch(() => {
+      this.setState({
+        showAddTagModal: false,
+      })
     })
   }
 }

@@ -1,42 +1,39 @@
 import React from 'react'
 import { Modal, Button } from 'react-bootstrap'
-import Select2 from 'react-select2-wrapper';
 
 import tags from '../../static/editor/tags'
 
 const tagKeys = Object.keys(tags)
 
-export default (resolve, reject) => class TagSelectModal extends React.Component {
+export default class TagSelectModal extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      selected: null
+      selected: 'text'
     }
   }
 
-  handleChangeSelect(...args){
-    console.log(args)
+  handleChangeSelect(e) {
+    this.setState({
+      selected: e.target.value,
+    })
   }
 
   render() {
     const { selected } = this.state
+    const { resolve, reject } = this.props
 
-    return (<Modal onHide={reject}>
+    return (<Modal onHide={reject} show={true}>
       <Modal.Header closeButton>
         <Modal.Title>Choose Tag</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Select2
-          data={tagKeys}
-          onChange={this.handleChangeSelect.bind(this)}
-          options={
-            {
-              placeholder: 'search tags',
-            }
-          }
-        />
-
+        <select value={selected} onChange={this.handleChangeSelect.bind(this)}>
+          {tagKeys.map((tag) => {
+            return (<option key={tag} value={tag}>{`<${tag}>`}</option>)
+          })}
+        </select>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={reject}>Cancle</Button>

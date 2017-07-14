@@ -33,7 +33,6 @@
     "react-dom": "^15.4.2",
     "react-i18next": "^4.1.2",
     "react-redux": "^5.0.5",
-    "react-select2-wrapper": "^1.0.4-beta5",
     "react-tree-renderer": "^1.0.2",
     "spdy": "^3.4.7"
   }
