@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Glyphicon } from 'react-bootstrap'
+import { Glyphicon } from 'react-bootstrap'
 
 export const tagTypes = {
   container: 'container',
@@ -9,14 +9,10 @@ export const tagTypes = {
 }
 
 class FakeTag extends React.Component {
-  constructor(props, ctx) {
-    super(props, ctx)
-  }
-
   render() {
-    const { type } = this.props
+    const { data } = this.props
 
-    switch (type) {
+    switch (data.type) {
       case tagTypes.container:
         return this.renderContainer()
       case tagTypes.element:
@@ -25,39 +21,44 @@ class FakeTag extends React.Component {
       default:
         return this.renderElement()
     }
-
   }
 
   renderContainer() {
-    const { children, tag, path, handleAddChild } = this.props
-    const pathPrifix = path?`${path}.`:''
+    const { children, data = {} } = this.props
+    const { tag, } = data
+
     return (<div>
       <p><code>{`<${tag}>`}</code></p>
       <ul>
+        <li><a onClick={() => this.handleAddChild(0)}><Glyphicon glyph="plus" /></a></li>
         {!!children && children.map((x, i) => (<li key={i}>
-          <Button onClick={()=>this.handleAddChild(i)}><Glyphicon glyph="plus" /></Button>
-          <FakeTag {...x} path={`${pathPrifix}children.${i}`} handleAddChild={handleAddChild} />
+          {x}
+          <a onClick={() => this.handleAddChild(i+1)}><Glyphicon glyph="plus" /></a>
         </li>))}
-        <li><Button onClick={()=>this.handleAddChild(children?children.length:0)}><Glyphicon glyph="plus" /></Button></li>
       </ul>
       <p><code>{`</${tag}>`}</code></p>
     </div>)
   }
 
   renderElement() {
-    const { tag } = this.props
-    return (<p><code>{`</${tag}>`}</code></p>)
+    const { data } = this.props
+    return (<p><code>{`</${data.tag}>`}</code></p>)
   }
 
   handleAddChild(index) {
-    const { path, handleAddChild } = this.props
-    handleAddChild(path,index,{
-      tag:'div',
+    const { updateData, data, } = this.props
+    const { children = [] } = data
+
+    children.splice(index, 0, {
+      tag: 'div',
       type: tagTypes.container
+    })
+
+    updateData({
+      ...data,
+      children,
     })
   }
 }
-
-
 
 export default FakeTag

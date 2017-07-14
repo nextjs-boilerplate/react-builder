@@ -1,5 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import TreeRenderer from 'react-tree-renderer'
+
 import { tagTypes, default as FakeTag } from './FakeTag'
 import { setJSON, getPath, pathMerge } from '../../tools/store/json'
 
@@ -13,17 +15,14 @@ class FakeTagContainer extends React.Component {
 
   render() {
     const { root } = this.props
-    return (<FakeTag {...root} handleAddChild={this.handleAddChild.bind(this)}/>)
+    const onUpdateData = this.onUpdateData.bind(this)
+
+    return (<TreeRenderer Template={FakeTag} data={root} onUpdateData={onUpdateData}/>)
   }
 
-  handleAddChild(path, index, child) {
-    const { root,dispatch } = this.props
-    const childrenPath = path?`${path}.children`:'children'
-    console.log(['childrenPath',childrenPath])
-    const children = [...getPath(root, childrenPath) || []]
-    children.splice(index,0,child)
-    const newRoot = pathMerge(root,childrenPath,children)
-    dispatch(setJSON(newRoot,currentEditorFakeTagRootPath))
+  onUpdateData(root) {    
+    const { dispatch } = this.props
+    dispatch(setJSON(root,currentEditorFakeTagRootPath))
   }
 }
 
