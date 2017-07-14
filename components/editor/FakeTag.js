@@ -68,13 +68,7 @@ class FakeTag extends React.Component {
         showAddTagModal: true,
       })
     }).then((obj) => {
-      console.log(obj)
-
-      children.splice(index, 0, {
-        tag: 'div',
-        type: tagTypes.container
-      })
-
+      children.splice(index, 0, obj)
       updateData({
         ...data,
         children,

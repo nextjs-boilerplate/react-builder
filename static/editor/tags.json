@@ -1,7 +1,7 @@
 {
   "text": {
     "desc": "pure text, not really a HTML tag",
-    "type": "container",
+    "type": "element",
     "group": "Basic"
   },
   "h1": {

@@ -37,7 +37,10 @@ export default class TagSelectModal extends React.Component {
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={reject}>Cancle</Button>
-        {!!selected && <Button onClick={() => resolve(selected)}>Confirm</Button>}
+        {!!selected && <Button onClick={() => resolve({
+          tag: selected,
+          type: tags[selected].type
+          })}>Confirm</Button>}
       </Modal.Footer>
     </Modal>)
   }
