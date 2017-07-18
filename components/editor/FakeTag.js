@@ -1,8 +1,12 @@
 import React from 'react'
-import { Glyphicon } from 'react-bootstrap'
+import { Glyphicon, Modal } from 'react-bootstrap'
 
 import TagSelectModal from './TagSelectModal'
-import PromiseModal from '../modal/PromiseModal'
+
+
+import tags from '../../static/editor/tags'
+
+const tagKeys = Object.keys(tags)
 
 export const tagTypes = {
   container: 'container',
@@ -12,14 +16,6 @@ export const tagTypes = {
 }
 
 class FakeTag extends React.Component {
-
-  constructor(props, ctx) {
-    super(props, ctx)
-    this.state = {
-      showAddTagModal: false,
-    }
-  }
-
   render() {
     const { data } = this.props
 
@@ -37,8 +33,7 @@ class FakeTag extends React.Component {
   renderContainer() {
     const { children, data = {} } = this.props
     const { tag } = data
-    const { showAddTagModal } = this.state
-    const { resolve, reject } = this
+
     return (<div>
       <p><code>{`<${tag}>`}</code></p>
       <ul>
@@ -49,7 +44,7 @@ class FakeTag extends React.Component {
         </li>))}
       </ul>
       <p><code>{`</${tag}>`}</code></p>
-      <PromiseModal ref="promiseModal"/>
+      <TagSelectModal ref="promiseModal" />
     </div>)
   }
 
@@ -58,40 +53,22 @@ class FakeTag extends React.Component {
     return (<p><code>{`</${data.tag}>`}</code></p>)
   }
 
-  handleAddChild(index) {
-    const {promiseModal} = this.refs
-    promiseModal.show()
-    .then((result)=>{
-      console.log({result})
-    })
-    .catch((err)=>{
-      console.log({err})
-    })
-    /*
-    const { updateData, data, } = this.props
-    const { children = [] } = data
 
-    this.addTagModalPromise = new Promise((resolve, reject) => {
-      this.resolve = resolve
-      this.reject = reject
-      this.setState({
-        showAddTagModal: true,
+  handleAddChild(index) {
+    const { data = {}, updateData } = this.props
+    const { children = [] } = data
+    const { promiseModal } = this.refs
+    promiseModal.show()
+      .then((obj) => {
+        children.splice(index, 0, obj)
+        updateData({
+          ...data,
+          children,
+        })
       })
-    }).then((obj) => {
-      children.splice(index, 0, obj)
-      updateData({
-        ...data,
-        children,
+      .catch((err) => {
+        console.log({ err })
       })
-      this.setState({
-        showAddTagModal: false,
-      })
-    }).catch(() => {
-      this.setState({
-        showAddTagModal: false,
-      })
-    })
-    */
   }
 }
 

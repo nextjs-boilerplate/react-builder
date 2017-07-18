@@ -1,15 +1,16 @@
 import React from 'react'
 import { Modal, Button } from 'react-bootstrap'
-
+import PromiseModal from '../modal/PromiseModal'
 import tags from '../../static/editor/tags'
 
 const tagKeys = Object.keys(tags)
 
-export default class TagSelectModal extends React.Component {
+export default class TagSelectModal extends PromiseModal {
 
   constructor(props) {
     super(props)
     this.state = {
+      ...this.state,
       selected: 'text'
     }
   }
@@ -20,28 +21,26 @@ export default class TagSelectModal extends React.Component {
     })
   }
 
-  render() {
+  getConfig() {
+    const handleChangeSelect = this.handleChangeSelect.bind(this)
     const { selected } = this.state
-    const { resolve, reject } = this.props
+    const reject = this.getReject()
+    const resolve = this.getResolve()
 
-    return (<Modal onHide={reject} className="static-modal">
-      <Modal.Header closeButton>
-        <Modal.Title>Choose Tag</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <select value={selected} onChange={this.handleChangeSelect.bind(this)}>
-          {tagKeys.map((tag) => {
-            return (<option key={tag} value={tag}>{`<${tag}>`}</option>)
-          })}
-        </select>
-      </Modal.Body>
-      <Modal.Footer>
+    return {
+      headerContent: (<Modal.Title>Choose Tag</Modal.Title>),
+      bodyContent: (<select value={selected} onChange={handleChangeSelect}>
+        {tagKeys.map((tag) => {
+          return (<option key={tag} value={tag}>{`<${tag}>`}</option>)
+        })}
+      </select>),
+      footerContent: (<div>
         <Button onClick={reject}>Cancle</Button>
         {!!selected && <Button onClick={() => resolve({
           ...tags[selected],
           tag: selected,
         })}>Confirm</Button>}
-      </Modal.Footer>
-    </Modal>)
+      </div>),
+    }
   }
 }

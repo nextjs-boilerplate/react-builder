@@ -11,10 +11,12 @@ export default class PromiseModal extends React.Component {
     this.promiseInfo = {}
   }
 
-  show(config) {
+  /**
+   * 显示
+   */
+  show() {
     return new Promise((resolve, reject) => {
       this.promiseInfo = {
-        ...config,
         resolve,
         reject,
       }
@@ -53,7 +55,7 @@ export default class PromiseModal extends React.Component {
       headerProps = { closeButton: true },
       bodyProps = {},
       footerProps = {},
-    } = this.promiseInfo
+    } = this.getConfig()
 
     if (!show) return (<div />)
 
@@ -71,5 +73,35 @@ export default class PromiseModal extends React.Component {
         {footerContent}
       </Modal.Footer>
     </Modal>)
+  }
+
+  /**
+   * 用于变更配置
+   * @return {Object}
+   */
+  getConfig(){
+    return {}
+  }
+
+  /**
+   * resolve
+   */
+  getResolve(){
+    const {resolve=()=>{}} = this.promiseInfo||{}
+    return (result)=>{
+      resolve(result)
+      this.hide()
+    }
+  }
+
+  /**
+   * reject
+   */
+  getReject(){
+    const {reject=()=>{}} = this.promiseInfo||{}
+    return (err)=>{
+      reject(err)
+      this.hide()
+    }
   }
 }
