@@ -42,36 +42,16 @@ class Header extends React.Component {
   getLinks(t) {
     var that = this
     var { user, dispatch } = this.props
-    return [{
-      linkProps: { route: "index" },
-      children: <a >{t('Home')}</a>,
-    }, {
-      linkProps: { route: "about" },
-      children: <a >{t('About')}</a>,
-      activeStyle: { color: 'blue', },
-    }, {
-      linkProps: { route: "posts" },
-      children: <a >{t('Posts')}</a>,
-      checkIsActive: ({ pathname }) => {
-        return ('/post' === pathname) || ('/posts' === pathname)
-      }
-    },
-    (user && user.username) ? {
-      nolink: true,
-      children: <a onClick={this.handleLogout.bind(this)}>{t('Logout')}</a>,
-    } : {
-        linkProps: { route: "login" },
-        children: <a >{t('Login')}</a>,
+    return [
+      {
+        linkProps: { route: "index" },
+        children: <a >{t('Home')}</a>,
       }, {
-      nolink: true,
-      liProps: {
-        style: {
-          paddingTop: '3px',
-        },
-        className:'pull-right',
+        linkProps: { route: "about" },
+        children: <a >{t('About')}</a>,
+        activeStyle: { color: 'blue', },
       },
-      children: (<Language />),
-    }]
+    ]
   }
 
 
