@@ -309,7 +309,12 @@
   "img": {
     "desc": "Defines an image",
     "type": "element",
-    "group": "Images"
+    "group": "Images",
+    "props": {
+      "src": "string",
+      "alt": "string",
+      "srcset": "string"
+    }
   },
   "map": {
     "desc": "Defines a client-side image-map",

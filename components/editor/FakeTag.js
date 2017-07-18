@@ -2,6 +2,7 @@ import React from 'react'
 import { Glyphicon } from 'react-bootstrap'
 
 import TagSelectModal from './TagSelectModal'
+import PromiseModal from '../modal/PromiseModal'
 
 export const tagTypes = {
   container: 'container',
@@ -48,7 +49,7 @@ class FakeTag extends React.Component {
         </li>))}
       </ul>
       <p><code>{`</${tag}>`}</code></p>
-      {showAddTagModal && <TagSelectModal resolve={resolve} reject={reject} />}
+      <PromiseModal ref="promiseModal"/>
     </div>)
   }
 
@@ -58,6 +59,15 @@ class FakeTag extends React.Component {
   }
 
   handleAddChild(index) {
+    const {promiseModal} = this.refs
+    promiseModal.show()
+    .then((result)=>{
+      console.log({result})
+    })
+    .catch((err)=>{
+      console.log({err})
+    })
+    /*
     const { updateData, data, } = this.props
     const { children = [] } = data
 
@@ -81,6 +91,7 @@ class FakeTag extends React.Component {
         showAddTagModal: false,
       })
     })
+    */
   }
 }
 

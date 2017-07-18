@@ -24,7 +24,7 @@ export default class TagSelectModal extends React.Component {
     const { selected } = this.state
     const { resolve, reject } = this.props
 
-    return (<Modal onHide={reject} show={true}>
+    return (<Modal onHide={reject} className="static-modal">
       <Modal.Header closeButton>
         <Modal.Title>Choose Tag</Modal.Title>
       </Modal.Header>
@@ -38,9 +38,9 @@ export default class TagSelectModal extends React.Component {
       <Modal.Footer>
         <Button onClick={reject}>Cancle</Button>
         {!!selected && <Button onClick={() => resolve({
+          ...tags[selected],
           tag: selected,
-          type: tags[selected].type
-          })}>Confirm</Button>}
+        })}>Confirm</Button>}
       </Modal.Footer>
     </Modal>)
   }
