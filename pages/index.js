@@ -22,16 +22,18 @@ const Index = (props) => {
     dispatch(setJSON(g, currentPatternGroupPath))
   }
   return (<div>
-    <h1>React Builder <small><a href="https://github.com/nextjs-boilerplate/react-builder/issues/new" target="_blank">issue</a></small></h1>
-
     <Grid>
       <Row>
         <Col xs={4} md={4}>
           <ListGroup>
             {data.patternGroups.map((patternGroup) => {
               return (currentPatternGroup && currentPatternGroup.key === patternGroup.key) ?
-                <ListGroupItem key={patternGroup.key} header={patternGroup.title} onClick={() => setCurrentPatternGroup(patternGroup)}>{patternGroup.description}</ListGroupItem> :
-                <ListGroupItem key={patternGroup.key} onClick={() => setCurrentPatternGroup(patternGroup)}>{patternGroup.title}</ListGroupItem>
+                <ListGroupItem key={patternGroup.key} header={patternGroup.title} onClick={
+                  () => setCurrentPatternGroup(patternGroup)
+                }>{patternGroup.description}</ListGroupItem> :
+                <ListGroupItem key={patternGroup.key} onClick={
+                  () => setCurrentPatternGroup(patternGroup)
+                }>{patternGroup.title}</ListGroupItem>
             })}
           </ListGroup>
         </Col>
@@ -40,7 +42,6 @@ const Index = (props) => {
         </Col>
       </Row>
     </Grid>
-
   </div>
   )
 }
