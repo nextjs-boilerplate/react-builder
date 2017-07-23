@@ -36,7 +36,7 @@ class FakeTag extends React.Component {
 
     return (<div>
       <p><code>{`<${tag}>`}</code></p>
-      <ul>
+      <ul style={{ paddingLeft: 15, listStyle: 'none' }}>
         <li><a onClick={() => this.handleAddChild(0)}><Glyphicon glyph="plus" /></a></li>
         {!!children && children.map((x, i) => (<li key={i}>
           {x}

@@ -1,6 +1,7 @@
 
 import Layout from '../components/Layout.js'
 import FakeTagContainer from '../components/editor/FakeTagContainer'
+import Property from '../components/editor/Property'
 
 const Component = (props) => {  
   return (<div>
@@ -10,7 +11,7 @@ const Component = (props) => {
         <FakeTagContainer />
       </div>
       <div className="col-xs-4">
-        
+        <Property />
       </div>
     </div> 
   </div>
