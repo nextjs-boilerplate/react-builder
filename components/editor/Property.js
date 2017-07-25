@@ -2,14 +2,15 @@ import { connect } from 'react-redux'
 import { Panel } from 'react-bootstrap'
 
 import { setJSON, getPath, pathMerge } from '../../tools/store/json'
-import {tagTypes} from './FakeTag'
-
-const currentEditorFakeTagRootPath = 'app.global.current.editor.faketagroot'
+import { tagTypes, currentEditorFakeTagRootPath, currentEditorFakeTagRelativePath } from './define'
 
 const Property = (props) => {
   const { path, root } = props
+  const pathData = getPath(root,path)
 
-  return (<Panel header={path}>{JSON.stringify(root)}</Panel>)
+  return (<Panel header={`Element Path: /${path}`}>
+    {JSON.stringify(pathData)}
+  </Panel>)
 }
 
 export default connect((state) => {
@@ -19,5 +20,6 @@ export default connect((state) => {
       tag: 'div',
       path: ''
     },
+    path: getPath(state, currentEditorFakeTagRelativePath) || '',
   }
 })(Property)

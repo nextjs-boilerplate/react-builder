@@ -2,11 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import TreeRenderer from 'react-tree-renderer'
 
-import { tagTypes, default as FakeTag } from './FakeTag'
+import { tagTypes, currentEditorFakeTagRootPath, currentEditorFakeTagRelativePath, treeEvents } from './define'
+import FakeTag from './FakeTag'
 import { setJSON, getPath, pathMerge } from '../../tools/store/json'
-
-const currentEditorFakeTagRootPath = 'app.global.current.editor.faketagroot'
-
 
 class FakeTagContainer extends React.Component {
   constructor(props, ctx) {
@@ -16,13 +14,26 @@ class FakeTagContainer extends React.Component {
   render() {
     const { root } = this.props
     const onUpdateData = this.onUpdateData.bind(this)
+    const onTreeEvent = this.onTreeEvent.bind(this)
 
-    return (<TreeRenderer Template={FakeTag} data={root} onUpdateData={onUpdateData}/>)
+    return (<TreeRenderer Template={FakeTag} data={root} onUpdateData={onUpdateData} onTreeEvent={onTreeEvent} />)
   }
 
-  onUpdateData(root) {    
+  onUpdateData(root) {
     const { dispatch } = this.props
-    dispatch(setJSON(root,currentEditorFakeTagRootPath))
+    dispatch(setJSON(root, currentEditorFakeTagRootPath))
+  }
+
+  onTreeEvent(eventStr, eventData, path) {
+    const { dispatch } = this.props
+    switch (eventStr) {
+      case treeEvents.selectNode:
+        dispatch(setJSON(path, currentEditorFakeTagRelativePath))
+        break;
+
+      default:
+        break;
+    }
   }
 }
 

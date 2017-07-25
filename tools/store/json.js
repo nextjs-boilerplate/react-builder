@@ -43,6 +43,8 @@ export const setJSON = (json, path) => {
 
 // helpers
 export function getPath(obj, pathStr) {
+  if(!pathStr) return obj
+    
   const pathArr = pathStr.split('.')
   var tmp = obj
   return pathArr.reduce((tmp, p) => {
