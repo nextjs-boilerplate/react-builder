@@ -11,7 +11,7 @@ const cookieFetch = getFetch()
  * @param {any} res 
  * @returns 
  */
-export default function fetch(url,option,req,res){
+export default function fetch(url, option, req, res) {
   return cookieFetch(apiUrls(url, req), option, req, res)
 }
 
@@ -24,11 +24,23 @@ export default function fetch(url,option,req,res){
  */
 export function getContextedFetch({ req, res }) {
   return ((req, res, url, option) => {
-    console.log(['req:'+typeof req,'window:'+typeof window])
+    console.log(['req:' + typeof req, 'window:' + typeof window])
     return fetch(url, option, req, res)
   }).bind(null, req, res)
 }
 
 export function apiUrls(path, req) {
   return req ? req.protocol + '://' + req.get('host') + path : path
+}
+
+export function postJSON(url, data, fetch = fetch) {
+  return fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data)
+  }).then(r => {
+    return r.json();
+  })
 }

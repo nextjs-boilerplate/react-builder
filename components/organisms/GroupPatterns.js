@@ -3,6 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Panel, OverlayTrigger, Tooltip, SplitButton, MenuItem, Button, FormGroup, InputGroup, FormControl } from 'react-bootstrap'
 import { getPath, fetchJSON } from '../../tools/store/json'
+import { add } from '../../tools/store/components'
 
 import data from '../../static/organisms/group-patterns'
 
@@ -33,16 +34,17 @@ class GroupPatterns extends React.Component {
     fetchPatterns(nextProps)
   }
 
-  handleCreateComponentChange(e){
+  handleCreateComponentChange(e) {
     const createComponentName = e.target.value
     const { group, groupPatterns } = this.props
-    
-    this.setState({ createComponentName }) 
+
+    this.setState({ createComponentName })
   }
 
   render() {
-    const { group, groupPatterns } = this.props
+    const { group, groupPatterns, dispatch } = this.props
     const { createComponentName, createComponentError } = this.state
+    const handleCreateComponentChange = this.handleCreateComponentChange.bind(this)
 
     return (<Panel header={`Your ${group.title}:`}>
       {!!groupPatterns && !!groupPatterns[group.key] && groupPatterns[group.key].map((pattern) => {
@@ -63,9 +65,14 @@ class GroupPatterns extends React.Component {
       <hr />
       <FormGroup className={createComponentError ? 'has-error' : ''} >
         <InputGroup>
-          <FormControl type="text" value={createComponentName} onChange={(e) => { }} />
+          <FormControl type="text"
+            value={createComponentName}
+            onChange={handleCreateComponentChange}
+          />
           <InputGroup.Button>
-            <Button>Create new {group.title}</Button>
+            <Button
+              onClick={() => add({ name: createComponentName }, dispatch)}
+            >Create new {group.title}</Button>
           </InputGroup.Button>
         </InputGroup>
         {createComponentError && <span class="help-block">{createComponentError}</span>}

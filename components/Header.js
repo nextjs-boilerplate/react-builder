@@ -1,16 +1,16 @@
 
 import React from 'react';
 import { translate } from 'react-i18next';
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 import getNavigation from 'next-navigation'
 import { connect } from 'react-redux'
 
-import { default as routes, Link } from '../tools/routes'
+import { Link } from '../tools/routes'
 import { getUser, logout } from '../tools/store/user'
 import { getContextedFetch } from '../tools/fetch'
 import Language from './molecules/Language'
 
-const MyNav = getNavigation(routes)
 
 class Header extends React.Component {
 
@@ -21,40 +21,32 @@ class Header extends React.Component {
 
   render() {
     const { url, t, user } = this.props
-
-    var tprops = {
-      ulProps: {
-        className: 'nav nav-tabs',
-      },
-      links: this.getLinks(t),
-      activeStyle: {},
-      activeClassName: 'active',
-      url,
-    }
     return (
       <div className="nav-wrap">
-        <MyNav {...tprops} />
+        <Navbar>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <div>
+                <Link route={'index'} prefetch><a>React Builder</a></Link>
+              </div>
+            </Navbar.Brand>
+          </Navbar.Header>
+          <ul className="nav navbar-nav">
+            <li role="presentation">
+              <Link route={'about'} prefetch><a href="#" role="button">About</a></Link>
+            </li>
+          </ul>
+          <Nav className="pull-right" style={{ marginRight: 15 }}>
+            <NavDropdown eventKey={3} title="Language" id="basic-nav-dropdown">
+              <MenuItem eventKey={3.1}>English</MenuItem>
+              <MenuItem eventKey={3.2}>中文</MenuItem>
+            </NavDropdown>
+          </Nav>
+        </Navbar>
         <p>{JSON.stringify(user)}</p>
       </div>
     )
   }
-
-  getLinks(t) {
-    var that = this
-    var { user, dispatch } = this.props
-    return [
-      {
-        linkProps: { route: "index" },
-        children: <a >{t('Home')}</a>,
-      }, {
-        linkProps: { route: "about" },
-        children: <a >{t('About')}</a>,
-        activeStyle: { color: 'blue', },
-      },
-    ]
-  }
-
-
 
   static translateNS = ['common']
 }
