@@ -4,7 +4,3 @@ yarn.lock
 /npm-debug.log
 /.vscode
 /yarn-error.log
-/app.db
-/data.db
-/db.json
-/.builder

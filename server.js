@@ -6,6 +6,11 @@ const fs = require('fs')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 
+//json-server
+require('./tools/json-server')
+//template-server
+require('./tools/template')
+
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 
@@ -38,20 +43,10 @@ app.prepare()
     })
 
     //http
-    server.listen(80, (err) => {
+    server.listen(3003, (err) => {
       if (err) throw err
-      console.log('> Ready http on http://localhost')
+      console.log('> Ready http on http://localhost:3003')
     })
-
-    //http2
-    spdy.createServer({
-      key: fs.readFileSync(__dirname + '/server.key'),
-      cert: fs.readFileSync(__dirname + '/server.crt')
-    }, server)
-      .listen(433, (err) => {
-        if (err) throw err
-        console.log('> Ready http2 on https://localhost')
-      })
   })
   .catch((ex) => {
     console.error(ex.stack)
