@@ -21,7 +21,7 @@ class Header extends React.Component {
 
   render() {
     const { url, t, user } = this.props
-    return (
+    return (<div>
       <div className="nav-wrap">
         <Navbar>
           <Navbar.Header>
@@ -45,7 +45,7 @@ class Header extends React.Component {
         </Navbar>
         <p>{JSON.stringify(user)}</p>
       </div>
-    )
+    </div>)
   }
 
   static translateNS = ['common']

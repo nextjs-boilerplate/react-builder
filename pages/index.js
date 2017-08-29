@@ -21,7 +21,7 @@ const Index = (props) => {
     }
     dispatch(setJSON(g, currentPatternGroupPath))
   }
-  return (<div>
+  return (<div className="row">
     <Grid>
       <Row>
         <Col xs={4} md={4}>

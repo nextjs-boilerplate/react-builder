@@ -1,3 +1,16 @@
 {
-  "components": []
+  "atoms": [
+    {
+      "id": 1,
+      "name": "Logo"
+    },
+    {
+      "id": 2,
+      "name": "Progress"
+    }
+  ],
+  "molecules": [],
+  "organisms": [],
+  "templates": [],
+  "pages": []
 }

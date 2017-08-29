@@ -29,13 +29,13 @@ export function getContextedFetch({ req, res }) {
   }).bind(null, req, res)
 }
 
-export function apiUrls(path, req) {
-  return req ? req.protocol + '://' + req.get('host') + path : path
+export function apiUrls(path) {
+  return `http://localhost:3004${path}`
 }
 
-export function postJSON(url, data, fetch = fetch) {
+export function postJSON(url, data, method = 'POST') {
   return fetch(url, {
-    method: 'POST',
+    method,
     headers: {
       'Content-Type': 'application/json',
     },

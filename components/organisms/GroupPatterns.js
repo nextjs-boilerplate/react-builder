@@ -3,18 +3,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Panel, OverlayTrigger, Tooltip, SplitButton, MenuItem, Button, FormGroup, InputGroup, FormControl } from 'react-bootstrap'
 import { getPath, fetchJSON } from '../../tools/store/json'
-import { add } from '../../tools/store/components'
+import { patternsPath, add, del } from '../../tools/store/components'
 
-import data from '../../static/organisms/group-patterns'
-
-const groupPatternMapPath = 'app.global.map.groupPattern'
-
-const fetchPatterns = ({ dispatch, group, groupPatterns }) => {
-  if (!group) return
-  if (!groupPatterns || !groupPatterns[group.key]) {
-    dispatch(fetchJSON(`/static/organisms/group-patterns-${group.key}.json`, `${groupPatternMapPath}.${group.key}`))
-  }
-}
+import { patternGroups } from '../../static/pages/index'
 
 class GroupPatterns extends React.Component {
 
@@ -22,41 +13,62 @@ class GroupPatterns extends React.Component {
     super();
     this.state = {
       createComponentName: '',
-      createComponentError: false,
     };
   }
 
   componentWillMount() {
-    fetchPatterns(this.props)
+    this.fetchPatterns(this.props)
   }
 
-  componentWillReceiveProps(nextProps) {
-    fetchPatterns(nextProps)
+  fetchPatterns({ dispatch }) {
+    if (!dispatch) dispatch = props.dispatch
+    patternGroups.forEach(({ key }) => {
+      dispatch(fetchJSON(`/${key}s`, `${patternsPath}.${key}`))
+    })
   }
 
   handleCreateComponentChange(e) {
     const createComponentName = e.target.value
-    const { group, groupPatterns } = this.props
-
-    this.setState({ createComponentName })
+    this.setState({
+      createComponentName,
+    })
   }
 
   render() {
     const { group, groupPatterns, dispatch } = this.props
-    const { createComponentName, createComponentError } = this.state
+    const { createComponentName } = this.state
     const handleCreateComponentChange = this.handleCreateComponentChange.bind(this)
+
+    let createComponentError = false
+    if (!/^[A-Z][\d\w]+$/.test(createComponentName)) {
+      createComponentError = `Name must match /^[A-Z][\d\w]+$/`
+    }
+
+    groupPatterns && groupPatterns[group.key] && (() => {
+      if (groupPatterns[group.key].filter(({ name }) => name === createComponentName).length) {
+        createComponentError = `Name already exists`
+      }
+    })
+
 
     return (<Panel header={`Your ${group.title}:`}>
       {!!groupPatterns && !!groupPatterns[group.key] && groupPatterns[group.key].map((pattern) => {
         const tooltip = (
-          <Tooltip id="tooltip">{pattern.description || pattern.title}</Tooltip>
+          <Tooltip id="tooltip">{pattern.description || pattern.name}</Tooltip>
         );
-        return <div key={pattern.title} style={{ paddingRight: 10, display: 'inline-block' }}>
+        return <div key={pattern.name} style={{
+          paddingRight: 10,
+          marginBottom: 10,
+          display: 'inline-block',
+        }}>
           <OverlayTrigger placement="top" overlay={tooltip}>
-            <SplitButton bsStyle="info" title={pattern.title} id={`group-patterns-${pattern.title}`}>
+            <SplitButton bsStyle="info" title={pattern.name} id={`group-patterns-${pattern.name}`}>
               <MenuItem eventKey="edit">Edit</MenuItem>
               <MenuItem eventKey="copy">Copy</MenuItem>
-              <MenuItem eventKey="delete">Delete</MenuItem>
+              <MenuItem
+                eventKey="delete"
+                onClick={() => { del(group.key, pattern.id, dispatch) }}
+              >Delete</MenuItem>
             </SplitButton>
           </OverlayTrigger>
         </div>
@@ -71,11 +83,13 @@ class GroupPatterns extends React.Component {
           />
           <InputGroup.Button>
             <Button
-              onClick={() => add({ name: createComponentName }, dispatch)}
+              onClick={createComponentError ? () => alert('fix error first') : () => add(group.key, {
+                name: createComponentName,
+              }, dispatch)}
             >Create new {group.title}</Button>
           </InputGroup.Button>
         </InputGroup>
-        {createComponentError && <span class="help-block">{createComponentError}</span>}
+        {createComponentError && <span className="help-block">{createComponentError}</span>}
       </FormGroup>
     </Panel>)
   }
@@ -83,6 +97,6 @@ class GroupPatterns extends React.Component {
 
 export default connect(state => {
   return {
-    groupPatterns: getPath(state, groupPatternMapPath),
+    groupPatterns: getPath(state, patternsPath),
   }
 })(GroupPatterns)

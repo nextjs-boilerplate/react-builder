@@ -1,35 +1,28 @@
 import { bindActionCreators } from 'redux'
 import getFetch from 'next-fetch'
-import { getPath, pathMerge, actionTypes } from './json'
+import { getPath, pathMerge, actionTypes, fetchJSON } from './json'
 import { postJSON } from '../fetch'
 
-const fetch = getFetch()
-const pathStoreComponent = 'api.db.component'
-const apiUrl = 'http://localhost:3004/components'
+import { patternGroups } from '../../static/pages/index'
 
 
-// ACTIONS
-export const getComponents = () => async (dispatch) => {
-  const r = await fetch(apiUrl)
-  const list = await r.json()
-  const dic = list.reduce((rtn, next) => {
-    rtn[next.id] = next
-    return rtn
-  }, {})
+export const patternsPath = 'app.global.map.patterns'
 
-  const action = {
-    type: actionTypes.SET_JSON,
-    path: pathStoreComponent,
-    json: {
-      list,
-      dic,
-    },
-  }
-  return dispatch(action)
+export const getComponents = (dispatch) => {
+  return Promise.all(patternGroups.map(({ key }) => {
+    return dispatch(fetchJSON(`/${key}s`, `${patternsPath}.${key}`))
+  }))
 }
 
-export const add = (obj, dispatch) => {
-  postJSON(apiUrl, obj, fetch)
-    .then(dispatch(getComponents()))
+export const add = (type, obj, dispatch) => {
+  postJSON(`/${type}s`, obj)
+    .then(() => getComponents(dispatch))
+    .catch((err) => { console.log(err) })
+}
+
+
+export const del = (type, id, dispatch) => {
+  postJSON(`/${type}s/${id}`, {}, 'DELETE')
+    .then(() => getComponents(dispatch))
     .catch((err) => { console.log(err) })
 }
