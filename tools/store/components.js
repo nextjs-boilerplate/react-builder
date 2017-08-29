@@ -8,6 +8,8 @@ import { patternGroups } from '../../static/pages/index'
 
 export const patternsPath = 'app.global.map.patterns'
 
+export const currentPatternPath = 'app.global.current.pattern'
+
 export const getComponents = (dispatch) => {
   return Promise.all(patternGroups.map(({ key }) => {
     return dispatch(fetchJSON(`/${key}s`, `${patternsPath}.${key}`))

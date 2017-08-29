@@ -2,8 +2,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Panel, OverlayTrigger, Tooltip, SplitButton, MenuItem, Button, FormGroup, InputGroup, FormControl } from 'react-bootstrap'
-import { getPath, fetchJSON } from '../../tools/store/json'
-import { patternsPath, add, del } from '../../tools/store/components'
+import Router from 'next/router'
+
+import { getPath, fetchJSON, setJSON } from '../../tools/store/json'
+import { patternsPath, add, del, currentPatternPath } from '../../tools/store/components'
 
 import { patternGroups } from '../../static/pages/index'
 
@@ -63,7 +65,10 @@ class GroupPatterns extends React.Component {
         }}>
           <OverlayTrigger placement="top" overlay={tooltip}>
             <SplitButton bsStyle="info" title={pattern.name} id={`group-patterns-${pattern.name}`}>
-              <MenuItem eventKey="edit">Edit</MenuItem>
+              <MenuItem
+                eventKey="edit"
+                onClick={() => dispatch(setJSON(pattern, currentPatternPath))}
+              >Edit</MenuItem>
               <MenuItem eventKey="copy">Copy</MenuItem>
               <MenuItem
                 eventKey="delete"
