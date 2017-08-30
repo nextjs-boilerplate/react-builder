@@ -8,6 +8,5 @@ export default ({ onChange, tagData = {} }) => (<div>
       value={tagData.text || ''}
     />
     <span id="helpBlock" className="help-block">{`do not use html encoded content, use data like \`\${data}\``}</span>
-    <p>{JSON.stringify(tagData)}</p>
   </div>
 </div>)

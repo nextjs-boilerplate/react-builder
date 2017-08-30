@@ -10,6 +10,8 @@ const cookieParser = require('cookie-parser')
 require('./tools/json-server')
 //template-server
 require('./tools/template')
+//fs-server
+require('./tools/fs-api')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })

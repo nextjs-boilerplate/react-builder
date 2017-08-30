@@ -4,10 +4,11 @@ import { connect } from 'react-redux'
 import { Button } from 'react-bootstrap'
 
 import FakeTagContainer from '../editor/FakeTagContainer'
-import { currentEditorFakeTagRootPath,currentEditorFakeTagRelativePath } from '../editor/define'
+import { currentEditorFakeTagRootPath, currentEditorFakeTagRelativePath } from '../editor/define'
 import Property from '../editor/Property'
 import { currentPatternPath, update } from '../../tools/store/components'
 import { getPath, setJSON } from '../../tools/store/json'
+import Preview from '../organisms/Preview'
 
 class Edit extends Component {
   constructor(props) {
@@ -32,7 +33,7 @@ class Edit extends Component {
             onClick={() => {
               dispatch(setJSON(undefined, currentPatternPath))
               dispatch(setJSON(undefined, currentEditorFakeTagRootPath))
-              dispatch(setJSON(undefined, currentEditorFakeTagRelativePath))              
+              dispatch(setJSON(undefined, currentEditorFakeTagRelativePath))
             }}
           >Back</Button>
         </span>
@@ -47,6 +48,7 @@ class Edit extends Component {
         </div>
       </div>
       <hr />
+      <Preview pattern={pattern} />
     </div>)
   }
 
