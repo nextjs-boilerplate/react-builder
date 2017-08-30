@@ -90,6 +90,7 @@ class GroupPatterns extends React.Component {
             <Button
               onClick={createComponentError ? () => alert('fix error first') : () => add(group.key, {
                 name: createComponentName,
+                type: group.key,
               }, dispatch)}
             >Create new {group.title}</Button>
           </InputGroup.Button>

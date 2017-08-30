@@ -11,12 +11,23 @@ class FakeTagContainer extends React.Component {
     super(props, ctx)
   }
 
+  componentDidMount() {
+    const { initDom, dispatch } = this.props
+    if (initDom) {
+      dispatch(setJSON(initDom, currentEditorFakeTagRootPath))
+    }
+  }
+
   render() {
     const { root } = this.props
     const onUpdateData = this.onUpdateData.bind(this)
     const onTreeEvent = this.onTreeEvent.bind(this)
 
-    return (<TreeRenderer Template={FakeTag} data={root} onUpdateData={onUpdateData} onTreeEvent={onTreeEvent} />)
+    return (<TreeRenderer
+      Template={FakeTag}
+      data={root}
+      onUpdateData={onUpdateData}
+      onTreeEvent={onTreeEvent} />)
   }
 
   onUpdateData(root) {
@@ -36,7 +47,6 @@ class FakeTagContainer extends React.Component {
     }
   }
 }
-
 
 
 export default connect((state) => {

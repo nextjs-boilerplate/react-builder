@@ -7,7 +7,6 @@ import { patternGroups } from '../../static/pages/index'
 
 
 export const patternsPath = 'app.global.map.patterns'
-
 export const currentPatternPath = 'app.global.current.pattern'
 
 export const getComponents = (dispatch) => {
@@ -17,14 +16,18 @@ export const getComponents = (dispatch) => {
 }
 
 export const add = (type, obj, dispatch) => {
-  postJSON(`/${type}s`, obj)
+  return postJSON(`/${type}s`, obj)
     .then(() => getComponents(dispatch))
     .catch((err) => { console.log(err) })
 }
 
+export const update = (type, obj, dispatch) => {
+  return postJSON(`/${type}s/${obj.id}`, obj, 'PUT')
+    .then(() => getComponents(dispatch))
+}
 
 export const del = (type, id, dispatch) => {
-  postJSON(`/${type}s/${id}`, {}, 'DELETE')
+  return postJSON(`/${type}s/${id}`, {}, 'DELETE')
     .then(() => getComponents(dispatch))
     .catch((err) => { console.log(err) })
 }
