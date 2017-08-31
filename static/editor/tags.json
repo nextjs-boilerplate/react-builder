@@ -4,6 +4,46 @@
     "type": "element",
     "group": "Basic"
   },
+  "div": {
+    "desc": "Defines a section in a document",
+    "type": "container",
+    "group": "Styles and Semantics"
+  },
+  "span": {
+    "desc": "Defines a section in a document",
+    "type": "container",
+    "group": "Styles and Semantics"
+  },
+  "header": {
+    "desc": "Defines a header for a document or section",
+    "type": "container",
+    "group": "Styles and Semantics"
+  },
+  "footer": {
+    "desc": "Defines a footer for a document or section",
+    "type": "container",
+    "group": "Styles and Semantics"
+  },
+  "main": {
+    "desc": "Specifies the main content of a document",
+    "type": "container",
+    "group": "Styles and Semantics"
+  },
+  "section": {
+    "desc": "Defines a section in a document",
+    "type": "container",
+    "group": "Styles and Semantics"
+  },
+  "article": {
+    "desc": "Defines an article",
+    "type": "container",
+    "group": "Styles and Semantics"
+  },
+  "aside": {
+    "desc": "Defines content aside from the page content",
+    "type": "container",
+    "group": "Styles and Semantics"
+  },
   "h1": {
     "desc": "Defines HTML heading 1",
     "type": "container",
@@ -494,51 +534,6 @@
     "desc": "Specifies a group of one or more columns in a table for formatting",
     "type": "container",
     "group": "Tables"
-  },
-  "style": {
-    "desc": "Defines style information for a document",
-    "type": "container",
-    "group": "Styles and Semantics"
-  },
-  "div": {
-    "desc": "Defines a section in a document",
-    "type": "container",
-    "group": "Styles and Semantics"
-  },
-  "span": {
-    "desc": "Defines a section in a document",
-    "type": "container",
-    "group": "Styles and Semantics"
-  },
-  "header": {
-    "desc": "Defines a header for a document or section",
-    "type": "container",
-    "group": "Styles and Semantics"
-  },
-  "footer": {
-    "desc": "Defines a footer for a document or section",
-    "type": "container",
-    "group": "Styles and Semantics"
-  },
-  "main": {
-    "desc": "Specifies the main content of a document",
-    "type": "container",
-    "group": "Styles and Semantics"
-  },
-  "section": {
-    "desc": "Defines a section in a document",
-    "type": "container",
-    "group": "Styles and Semantics"
-  },
-  "article": {
-    "desc": "Defines an article",
-    "type": "container",
-    "group": "Styles and Semantics"
-  },
-  "aside": {
-    "desc": "Defines content aside from the page content",
-    "type": "container",
-    "group": "Styles and Semantics"
   },
   "details": {
     "desc": "Defines additional details that the user can view or hide",

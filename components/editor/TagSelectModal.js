@@ -1,5 +1,8 @@
 import React from 'react'
 import { Modal, Button } from 'react-bootstrap'
+import Select2 from 'react-select'
+import Head from 'next/head'
+
 import PromiseModal from '../modal/PromiseModal'
 import tags from '../../static/editor/tags'
 
@@ -29,17 +32,28 @@ export default class TagSelectModal extends PromiseModal {
 
     return {
       headerContent: (<Modal.Title>Choose Tag</Modal.Title>),
-      bodyContent: (<select value={selected} onChange={handleChangeSelect}>
-        {tagKeys.map((tag) => {
-          return (<option key={tag} value={tag}>{`<${tag}>`}</option>)
-        })}
-      </select>),
+      bodyContent: (<div>
+        <Head>
+          <link href="https://cdn.bootcss.com/react-select/1.0.0-rc.5/react-select.min.css" rel="stylesheet" />
+        </Head>
+        <Select2
+          options={tagKeys.map(k => {
+            return {
+              label: k,
+              value: {
+                ...tags[k],
+                tag: k,
+              }
+            }
+          })}
+          onChange={(tag) => {
+            if (tag) {
+              resolve(tag.value)
+            }
+          }} />
+      </div>),
       footerContent: (<div>
         <Button onClick={reject}>Cancle</Button>
-        {!!selected && <Button onClick={() => resolve({
-          ...tags[selected],
-          tag: selected,
-        })}>Confirm</Button>}
       </div>),
     }
   }
