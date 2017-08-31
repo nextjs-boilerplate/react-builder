@@ -48,7 +48,14 @@ class Edit extends Component {
         </div>
       </div>
       <hr />
-      <Preview pattern={pattern} />
+      <div className="row">
+        <div className="col-xs-8">
+          <Preview pattern={pattern} />
+        </div>
+        <div className="col-xs-4">
+
+        </div>
+      </div>
     </div>)
   }
 
