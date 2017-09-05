@@ -5,6 +5,7 @@ import Head from 'next/head'
 
 import PromiseModal from '../modal/PromiseModal'
 import tags from '../../static/editor/tags'
+import ComponentSelect from './ComponentSelect'
 
 const tagKeys = Object.keys(tags)
 
@@ -36,6 +37,7 @@ export default class TagSelectModal extends PromiseModal {
         <Head>
           <link href="https://cdn.bootcss.com/react-select/1.0.0-rc.5/react-select.min.css" rel="stylesheet" />
         </Head>
+        <label>基础标签：</label>
         <Select2
           options={tagKeys.map(k => {
             return {
@@ -51,6 +53,13 @@ export default class TagSelectModal extends PromiseModal {
               resolve(tag.value)
             }
           }} />
+        <hr />
+        <label>其他组件：</label>
+        <ComponentSelect onChange={(tag) => {
+          if (tag) {
+            resolve(tag.value)
+          }
+        }} />
       </div>),
       footerContent: (<div>
         <Button onClick={reject}>Cancle</Button>

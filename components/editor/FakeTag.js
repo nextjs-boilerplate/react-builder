@@ -17,6 +17,7 @@ class FakeTag extends React.Component {
       case tagTypes.element:
       case tagTypes.list:
       case tagTypes.if:
+      case tagTypes.component:
       default:
         return this.renderElement()
     }

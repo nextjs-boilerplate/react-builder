@@ -39,6 +39,10 @@ const getDomHtml = (dom) => {
     return `{\`${text || ''}\`}`
   }
 
+  if (tag === 'component') {
+    return `{\`${text || ''}\`}`
+  }
+
   const attrs = getAttributeString(dom)
 
   if (!dom.children || !dom.children.length) {
