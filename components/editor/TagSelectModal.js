@@ -41,7 +41,7 @@ export default class TagSelectModal extends PromiseModal {
         <Select2
           options={tagKeys.map(k => {
             return {
-              label: k,
+              label: `${k} - ${tags[k].desc}`,
               value: {
                 ...tags[k],
                 tag: k,
