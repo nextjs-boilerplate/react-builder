@@ -14,7 +14,8 @@ export default class PromiseModal extends React.Component {
   /**
    * 显示
    */
-  show() {
+  show(obj = {}) {
+    this.onShow && this.onShow(obj)
     return new Promise((resolve, reject) => {
       this.promiseInfo = {
         resolve,
@@ -46,9 +47,9 @@ export default class PromiseModal extends React.Component {
           reject('cancleBtn')
         }}>Cancle</Button>
         <Button bsStyle="primary" onClick={() => {
-            hide()
-            resolve(true)
-          }
+          hide()
+          resolve(true)
+        }
         }>Confirm</Button>
       </div>),
       modalProps = {},
@@ -79,16 +80,16 @@ export default class PromiseModal extends React.Component {
    * 用于变更配置
    * @return {Object}
    */
-  getConfig(){
+  getConfig() {
     return {}
   }
 
   /**
    * resolve
    */
-  getResolve(){
-    const {resolve=()=>{}} = this.promiseInfo||{}
-    return (result)=>{
+  getResolve() {
+    const { resolve = () => { } } = this.promiseInfo || {}
+    return (result) => {
       resolve(result)
       this.hide()
     }
@@ -97,9 +98,9 @@ export default class PromiseModal extends React.Component {
   /**
    * reject
    */
-  getReject(){
-    const {reject=()=>{}} = this.promiseInfo||{}
-    return (err)=>{
+  getReject() {
+    const { reject = () => { } } = this.promiseInfo || {}
+    return (err) => {
       reject(err)
       this.hide()
     }

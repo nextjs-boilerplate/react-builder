@@ -8,7 +8,7 @@ import getTagEditor from './tags'
 const Property = (props) => {
   const { path, root, dispatch } = props
   const pathData = getPath(root, path) || {}
-  const TagEditor = getTagEditor(pathData.tag)
+  const TagEditor = getTagEditor(pathData.tag, pathData.type)
   const onChange = (k, v) => {
     const newRoot = pathMerge(root, path ? `${path}.${k}` : k, v)
     return dispatch(setJSON(newRoot, currentEditorFakeTagRootPath))
@@ -29,7 +29,7 @@ const Property = (props) => {
     <TagEditor onChange={onChange} tagData={pathData} />
     {!!path && (<div>
       <hr />
-      <Button onClick={onDelete}>删除</Button>
+      <Button onClick={onDelete}>delete</Button>
     </div>)}
   </Panel>)
 }

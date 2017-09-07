@@ -3,12 +3,12 @@ import { merge } from 'lodash'
 const getAttributeString = (dom) => {
   var str = ''
 
-  if (dom.attrs && Object.keys(dom.attrs).length) {
-    str += Object.keys(dom.attrs).map((k) => `${k}="${dom.attrs[k]}"`).join(' ')
+  if (dom.attributes && Object.keys(dom.attributes).length) {
+    str += Object.keys(dom.attributes).map((k) => `${k}="${dom.attributes[k]}"`).join(' ')
   }
 
-  if (dom.style && Object.keys(dom.style).length) {
-    str += ` style={${JSON.stringify(dom.style)}}`
+  if (dom.styles && Object.keys(dom.styles).length) {
+    str += ` style={${JSON.stringify(dom.styles)}}`
   }
 
   return str

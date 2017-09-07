@@ -1,13 +1,22 @@
 import Text from './Text'
 import Normal from './Normal'
+import Component from './Component'
 
-const map = {
+const mapTag = {
   text: Text,
 }
 
-export default (type) => {
-  if (map[type]) {
-    return map[type]
+const mapType = {
+  component: Component,
+}
+
+export default (tag, type) => {
+
+  if (tag && mapTag[tag]) {
+    return mapTag[tag]
+  }
+  if (type && mapType[type]) {
+    return mapType[type]
   }
   return Normal
 }

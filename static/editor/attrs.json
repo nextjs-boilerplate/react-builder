@@ -1,0 +1,42 @@
+{
+  "className": {
+    "desc": "The class attribute specifies one or more classnames for an element."
+  },
+  "id": {
+    "desc": "The id attribute specifies a unique id for an HTML element (the value must be unique within the HTML document)."
+  },
+  "name": {
+    "desc": "The name attribute specifies a name for the element."
+  },
+  "frameBorder": {
+    "desc": "The frameborder attribute specifies whether or not to display a border around an <iframe>.",
+    "tags": [
+      "iframe"
+    ]
+  },
+  "src": {
+    "desc": "The src attribute specifies the location (URL) of the external resource.",
+    "tags": [
+      "img",
+      "video",
+      "audio",
+      "embed",
+      "source",
+      "input",
+      "script",
+      "track",
+      "iframe"
+    ]
+  },
+  "alt": {
+    "desc": "The alt attribute provides alternative information for an image if a user for some reason cannot view it (because of slow connection, an error in the src attribute, or if the user uses a screen reader).",
+    "tags": [
+      "area",
+      "img",
+      "input"
+    ]
+  },
+  "title": {
+    "desc": "The title attribute specifies extra information about an element."
+  }
+}

@@ -1,255 +1,140 @@
 {
-  "align-content": {
-    "type": "enum",
-    "desc": "The align-content property modifies the behavior of the flex-wrap property. It is similar to align-items, but instead of aligning flex items, it aligns flex lines.",
-    "enum": [
-      "stretch",
-      "center",
-      "flex-start",
-      "flex-end",
-      "space-between",
-      "space-around",
-      "initial",
-      "inherit"
-    ],
-    "default": "stretch"
-  },
-  "align-items": {
-    "type": "enum",
-    "desc": "The align-items property specifies the default alignment for items inside the flexible container.",
-    "enum": [
-      "stretch",
-      "center",
-      "flex-start",
-      "flex-end",
-      "baseline",
-      "initial",
-      "inherit"
-    ],
-    "default": "stretch"
-  },
-  "align-self": {
-    "type": "enum",
-    "desc": "The align-self property specifies the alignment for the selected item inside the flexible container.",
-    "enum": [
-      "auto",
-      "stretch",
-      "center",
-      "flex-start",
-      "flex-end",
-      "baseline",
-      "initial",
-      "inherit"
-    ],
+  "height": {
+    "type": "auto|length|%",
+    "desc": "The height property sets the height of an element.",
     "default": "auto"
   },
-  "all": {
-    "type": "enum",
-    "desc": "The all property resets all properties, apart from unicode-bidi and direction, to their initial or inherited value.",
-    "enum": [
-      "initial",
-      "inherit",
-      "unset"
-    ],
-    "default": "initial"
+  "width": {
+    "type": "auto|length|%",
+    "desc": "The width property sets the width of an element.",
+    "default": "auto"
   },
-  "animation": {
-    "type": "any",
-    "desc": "The animation property is a shorthand property for eight of the animation properties.",
-    "default": ""
-  },
-  "animation-delay": {
-    "type": "time",
-    "desc": "The animation-delay property specifies a delay for the start of an animation.",
-    "default": "0s"
-  },
-  "animation-direction": {
-    "type": "enum",
-    "desc": "The animation-direction property defines whether an animation should play in reverse direction or in alternate cycles.",
-    "enum": [
-      "normal",
-      "reverse",
-      "alternate",
-      "alternate-reverse",
-      "initial",
-      "inherit"
-    ],
+  "line-height": {
+    "type": "normal|number|length|%",
+    "desc": "The line-height property specifies the line height.",
     "default": "normal"
   },
-  "animation-duration": {
-    "type": "time",
-    "desc": "The animation-duration property defines how many seconds or milliseconds an animation takes to complete one cycle.",
-    "default": "0.6s"
-  },
-  "animation-fill-mode": {
-    "type": "enum",
-    "desc": "The animation-fill-mode property specifies a style for the element when the animation is not playing (when it is finished, or when it has a delay).",
-    "enum": [
-      "none",
-      "forwards",
-      "backwards",
-      "both",
-      "initial",
-      "inherit"
-    ],
-    "default": "none"
-  },
-  "animation-iteration-count": {
-    "type": "count",
-    "desc": "The animation-iteration-count property specifies the number of times an animation should be played."
-  },
-  "animation-name": {
-    "type": "any",
-    "desc": "The animation-name property specifies a name for the @keyframes animation.",
-    "default": ""
-  },
-  "animation-play-state": {
-    "type": "enum",
-    "desc": "The animation-play-state property specifies whether the animation is running or paused.",
-    "enum": [
-      "paused",
-      "running",
-      "initial",
-      "inherit"
-    ],
-    "default": "running"
-  },
-  "animation-timing-function": {
-    "type": "enum",
-    "desc": "The animation-timing-function specifies the speed curve of an animation.",
-    "enum": [
-      "linear",
-      "ease",
-      "ease-in",
-      "ease-out",
-      "ease-in-out",
-      "step-start",
-      "step-end",
-      "initial",
-      "inherit"
-    ],
-    "default": "ease"
-  },
-  "backface-visibility": {
-    "type": "enum",
-    "desc": "The backface-visibility property defines whether or not an element should be visible when not facing the screen.",
-    "enum": [
-      "visible",
-      "hidden",
-      "initial",
-      "inherit"
-    ],
-    "default": "visible"
+  "color": {
+    "type": "color",
+    "desc": "The color property specifies the color of text.",
+    "default": "#000"
   },
   "background": {
     "type": "bg-color bg-image position/bg-size bg-repeat bg-origin bg-clip bg-attachment",
     "desc": "The background shorthand property sets all the background properties in one declaration.",
     "default": ""
   },
-  "background-attachment": {
+  "display": {
     "type": "enum",
-    "desc": "The background-attachment property sets whether a background image is fixed or scrolls with the rest of the page.",
-    "enum": [
-      "scroll",
-      "fixed",
-      "local",
+    "desc": "The display property specifies the type of box used for an HTML element.",
+    "options": [
+      "inline",
+      "block",
+      "flex",
+      "inline-block",
+      "inline-flex",
+      "inline-table",
+      "list-item",
+      "run-in",
+      "table",
+      "table-caption",
+      "table-column-group",
+      "table-header-group",
+      "table-footer-group",
+      "table-row-group",
+      "table-cell",
+      "table-column",
+      "table-row",
+      "none",
       "initial",
       "inherit"
     ],
-    "default": "scroll"
+    "default": "initial"
   },
-  "background-blend-mode": {
+  "float": {
     "type": "enum",
-    "desc": "The background-blend-mode property defines the blending mode of each background layer (color and/or image).",
-    "enum": [
-      "normal",
-      "multiply",
-      "screen",
-      "overlay",
-      "darken",
-      "lighten",
-      "color-dodge",
-      "saturation",
-      "color",
-      "luminosity"
-    ],
-    "default": "normal"
-  },
-  "background-clip": {
-    "type": "enum",
-    "desc": "The background-clip property specifies the painting area of the background.",
-    "enum": [
-      "border-box",
-      "padding-box",
-      "content-box",
+    "desc": "The float property specifies whether or not a box (an element) should float.",
+    "options": [
+      "none",
+      "left",
+      "right",
       "initial",
       "inherit"
     ],
-    "default": "border-box"
-  },
-  "background-color": {
-    "type": "color",
-    "desc": "The background-color property sets the background color of an element.",
-    "default": "transparent"
-  },
-  "background-image": {
-    "type": "none|url",
-    "desc": "The background-color property sets the background color of an element.",
     "default": "none"
   },
-  "background-origin": {
+  "position": {
     "type": "enum",
-    "desc": "The background-origin property specifies where the background image is positioned.",
-    "enum": [
-      "padding-box",
-      "border-box",
-      "content-box",
+    "desc": "The position property specifies the type of positioning method used for an element (static, relative, absolute or fixed).",
+    "options": [
+      "static",
+      "absolute",
+      "fixed",
+      "relative",
       "initial",
       "inherit"
     ],
-    "default": "padding-box"
+    "default": "static"
   },
-  "background-position": {
-    "type": "enum",
-    "desc": "The background-position property sets the starting position of a background image.",
-    "enum": [
-      "left top",
-      "left center",
-      "left bottom",
-      "right top",
-      "right center",
-      "right bottom",
-      "center top",
-      "center center",
-      "center bottom"
-    ],
-    "default": "center center"
+  "margin": {
+    "type": "any",
+    "desc": "The margin shorthand property sets all the margin properties in one declaration. This property can have from one to four values.",
+    "default": 0
   },
-  "background-repeat": {
-    "type": "enum",
-    "desc": "The background-repeat property sets if/how a background image will be repeated.",
-    "enum": [
-      "repeat",
-      "repeat-x",
-      "repeat-y",
-      "no-repeat",
-      "initial",
-      "inherit"
-    ],
-    "default": "repeat"
+  "margin-bottom": {
+    "type": "length|%|auto",
+    "desc": "The margin-bottom property sets the bottom margin of an element.",
+    "default": 0
   },
-  "background-size": {
-    "type": "enum",
-    "desc": "The background-size property specifies the size of the background images.",
-    "enum": [
-      "auto",
-      "length",
-      "cover",
-      "contain",
-      "initial",
-      "inherit"
-    ],
-    "default": "auto"
+  "margin-left": {
+    "type": "length|%|auto",
+    "desc": "The margin-left property sets the left margin of an element.",
+    "default": 0
+  },
+  "margin-right": {
+    "type": "length|%|auto",
+    "desc": "The margin-right property sets the right margin of an element.",
+    "default": 0
+  },
+  "margin-top": {
+    "type": "length|%|auto",
+    "desc": "The margin-top property sets the top margin of an element.",
+    "default": 0
+  },
+  "max-height": {
+    "type": "none|length|%",
+    "desc": "The max-height property is used to set the maximum height of an element.",
+    "default": "none"
+  },
+  "padding": {
+    "type": "any",
+    "desc": "The padding shorthand property sets all the padding properties in one declaration. This property can have from one to four values.",
+    "default": 0
+  },
+  "padding-bottom": {
+    "type": "length|%",
+    "desc": "The padding-bottom property sets the bottom padding (space) of an element.",
+    "default": 0
+  },
+  "padding-left": {
+    "type": "length|%",
+    "desc": "The padding-left property sets the left padding (space) of an element.",
+    "default": 0
+  },
+  "padding-right": {
+    "type": "length|%",
+    "desc": "The padding-right property sets the right padding (space) of an element.",
+    "default": 0
+  },
+  "padding-top": {
+    "type": "length|%",
+    "desc": "The padding-top property sets the top padding (space) of an element.",
+    "default": 0
+  },
+  "max-width": {
+    "type": "none|length|%",
+    "desc": "The max-width property is used to set the maximum width of an element.",
+    "default": "none"
   },
   "border": {
     "type": "border-width border-style border-color",
@@ -279,7 +164,7 @@
   "border-bottom-style": {
     "type": "enum",
     "desc": "The border-bottom-style property sets the style of an element's bottom border.",
-    "enum": [
+    "options": [
       "none",
       "hidden",
       "dotted",
@@ -303,7 +188,7 @@
   "border-collapse": {
     "type": "enum",
     "desc": "The border-collapse property sets whether the table borders are collapsed into a single border or detached as in standard HTML.",
-    "enum": [
+    "options": [
       "separate",
       "collapse",
       "initial",
@@ -329,7 +214,7 @@
   "border-image-repeat": {
     "type": "enum",
     "desc": "The border-image-repeat property specifies whether the border image should be repeated, rounded or stretched.",
-    "enum": [
+    "options": [
       "stretch",
       "repeat",
       "round",
@@ -366,7 +251,7 @@
   "border-left-style": {
     "type": "enum",
     "desc": "The border-left-style property sets the style of an element's left border.",
-    "enum": [
+    "options": [
       "none",
       "hidden",
       "dotted",
@@ -405,7 +290,7 @@
   "border-right-style": {
     "type": "enum",
     "desc": "The border-right-style property sets the style of an element's right border.",
-    "enum": [
+    "options": [
       "none",
       "hidden",
       "dotted",
@@ -434,7 +319,7 @@
   "border-style": {
     "type": "enum",
     "desc": "The border-style property sets the style of an element's four borders. This property can have from one to four values.",
-    "enum": [
+    "options": [
       "none",
       "hidden",
       "dotted",
@@ -473,7 +358,7 @@
   "border-top-style": {
     "type": "enum",
     "desc": "The border-top-style property sets the style of an element's top border.",
-    "enum": [
+    "options": [
       "none",
       "hidden",
       "dotted",
@@ -499,6 +384,263 @@
     "desc": "The border-width property sets the width of an element's four borders. This property can have from one to four values.",
     "default": "medium"
   },
+  "min-height": {
+    "type": "none|length|%",
+    "desc": "The min-height property is used to set the minimum height of an element.",
+    "default": "none"
+  },
+  "min-width": {
+    "type": "none|length|%",
+    "desc": "The min-width property is used to set the minimum width of an element.",
+    "default": "none"
+  },
+  "align-content": {
+    "type": "enum",
+    "desc": "The align-content property modifies the behavior of the flex-wrap property. It is similar to align-items, but instead of aligning flex items, it aligns flex lines.",
+    "options": [
+      "stretch",
+      "center",
+      "flex-start",
+      "flex-end",
+      "space-between",
+      "space-around",
+      "initial",
+      "inherit"
+    ],
+    "default": "stretch"
+  },
+  "align-items": {
+    "type": "enum",
+    "desc": "The align-items property specifies the default alignment for items inside the flexible container.",
+    "options": [
+      "stretch",
+      "center",
+      "flex-start",
+      "flex-end",
+      "baseline",
+      "initial",
+      "inherit"
+    ],
+    "default": "stretch"
+  },
+  "align-self": {
+    "type": "enum",
+    "desc": "The align-self property specifies the alignment for the selected item inside the flexible container.",
+    "options": [
+      "auto",
+      "stretch",
+      "center",
+      "flex-start",
+      "flex-end",
+      "baseline",
+      "initial",
+      "inherit"
+    ],
+    "default": "auto"
+  },
+  "all": {
+    "type": "enum",
+    "desc": "The all property resets all properties, apart from unicode-bidi and direction, to their initial or inherited value.",
+    "options": [
+      "initial",
+      "inherit",
+      "unset"
+    ],
+    "default": "initial"
+  },
+  "animation": {
+    "type": "any",
+    "desc": "The animation property is a shorthand property for eight of the animation properties.",
+    "default": ""
+  },
+  "animation-delay": {
+    "type": "time",
+    "desc": "The animation-delay property specifies a delay for the start of an animation.",
+    "default": "0s"
+  },
+  "animation-direction": {
+    "type": "enum",
+    "desc": "The animation-direction property defines whether an animation should play in reverse direction or in alternate cycles.",
+    "options": [
+      "normal",
+      "reverse",
+      "alternate",
+      "alternate-reverse",
+      "initial",
+      "inherit"
+    ],
+    "default": "normal"
+  },
+  "animation-duration": {
+    "type": "time",
+    "desc": "The animation-duration property defines how many seconds or milliseconds an animation takes to complete one cycle.",
+    "default": "0.6s"
+  },
+  "animation-fill-mode": {
+    "type": "enum",
+    "desc": "The animation-fill-mode property specifies a style for the element when the animation is not playing (when it is finished, or when it has a delay).",
+    "options": [
+      "none",
+      "forwards",
+      "backwards",
+      "both",
+      "initial",
+      "inherit"
+    ],
+    "default": "none"
+  },
+  "animation-iteration-count": {
+    "type": "count",
+    "desc": "The animation-iteration-count property specifies the number of times an animation should be played."
+  },
+  "animation-name": {
+    "type": "any",
+    "desc": "The animation-name property specifies a name for the @keyframes animation.",
+    "default": ""
+  },
+  "animation-play-state": {
+    "type": "enum",
+    "desc": "The animation-play-state property specifies whether the animation is running or paused.",
+    "options": [
+      "paused",
+      "running",
+      "initial",
+      "inherit"
+    ],
+    "default": "running"
+  },
+  "animation-timing-function": {
+    "type": "enum",
+    "desc": "The animation-timing-function specifies the speed curve of an animation.",
+    "options": [
+      "linear",
+      "ease",
+      "ease-in",
+      "ease-out",
+      "ease-in-out",
+      "step-start",
+      "step-end",
+      "initial",
+      "inherit"
+    ],
+    "default": "ease"
+  },
+  "backface-visibility": {
+    "type": "enum",
+    "desc": "The backface-visibility property defines whether or not an element should be visible when not facing the screen.",
+    "options": [
+      "visible",
+      "hidden",
+      "initial",
+      "inherit"
+    ],
+    "default": "visible"
+  },
+  "background-attachment": {
+    "type": "enum",
+    "desc": "The background-attachment property sets whether a background image is fixed or scrolls with the rest of the page.",
+    "options": [
+      "scroll",
+      "fixed",
+      "local",
+      "initial",
+      "inherit"
+    ],
+    "default": "scroll"
+  },
+  "background-blend-mode": {
+    "type": "enum",
+    "desc": "The background-blend-mode property defines the blending mode of each background layer (color and/or image).",
+    "options": [
+      "normal",
+      "multiply",
+      "screen",
+      "overlay",
+      "darken",
+      "lighten",
+      "color-dodge",
+      "saturation",
+      "color",
+      "luminosity"
+    ],
+    "default": "normal"
+  },
+  "background-clip": {
+    "type": "enum",
+    "desc": "The background-clip property specifies the painting area of the background.",
+    "options": [
+      "border-box",
+      "padding-box",
+      "content-box",
+      "initial",
+      "inherit"
+    ],
+    "default": "border-box"
+  },
+  "background-color": {
+    "type": "color",
+    "desc": "The background-color property sets the background color of an element.",
+    "default": "transparent"
+  },
+  "background-image": {
+    "type": "none|url",
+    "desc": "The background-color property sets the background color of an element.",
+    "default": "none"
+  },
+  "background-origin": {
+    "type": "enum",
+    "desc": "The background-origin property specifies where the background image is positioned.",
+    "options": [
+      "padding-box",
+      "border-box",
+      "content-box",
+      "initial",
+      "inherit"
+    ],
+    "default": "padding-box"
+  },
+  "background-position": {
+    "type": "enum",
+    "desc": "The background-position property sets the starting position of a background image.",
+    "options": [
+      "left top",
+      "left center",
+      "left bottom",
+      "right top",
+      "right center",
+      "right bottom",
+      "center top",
+      "center center",
+      "center bottom"
+    ],
+    "default": "center center"
+  },
+  "background-repeat": {
+    "type": "enum",
+    "desc": "The background-repeat property sets if/how a background image will be repeated.",
+    "options": [
+      "repeat",
+      "repeat-x",
+      "repeat-y",
+      "no-repeat",
+      "initial",
+      "inherit"
+    ],
+    "default": "repeat"
+  },
+  "background-size": {
+    "type": "enum",
+    "desc": "The background-size property specifies the size of the background images.",
+    "options": [
+      "auto",
+      "length",
+      "cover",
+      "contain",
+      "initial",
+      "inherit"
+    ],
+    "default": "auto"
+  },
   "bottom": {
     "type": "auto|length",
     "desc": "For absolutely positioned elements, the bottom property sets the bottom edge of an element to a unit above/below the bottom edge of its nearest positioned ancestor. ",
@@ -512,7 +654,7 @@
   "box-sizing": {
     "type": "enum",
     "desc": "The box-sizing property is used to tell the browser what the sizing properties (width and height) should include.",
-    "enum": [
+    "options": [
       "content-box",
       "border-box",
       "initial",
@@ -523,7 +665,7 @@
   "caption-side": {
     "type": "enum",
     "desc": "The caption-side property specifies the placement of a table caption.",
-    "enum": [
+    "options": [
       "top",
       "bottom",
       "initial",
@@ -534,7 +676,7 @@
   "clear": {
     "type": "enum",
     "desc": "The clear property specifies on which sides of an element floating elements are not allowed to float.",
-    "enum": [
+    "options": [
       "none",
       "left",
       "right",
@@ -549,11 +691,6 @@
     "desc": "What happens if an image is larger than its containing element? - The clip property lets you specify a rectangle to clip an absolutely positioned element. The rectangle is specified as four coordinates, all from the top-left corner of the element to be clipped.",
     "default": "auto"
   },
-  "color": {
-    "type": "color",
-    "desc": "The color property specifies the color of text.",
-    "default": "#000"
-  },
   "column-count": {
     "type": "number|auto",
     "desc": "The column-count property specifies the number of columns an element should be divided into.",
@@ -562,7 +699,7 @@
   "column-fill": {
     "type": "enum",
     "desc": "The column-fill property specifies how to fill columns, balanced or not.",
-    "enum": [
+    "options": [
       "balance",
       "auto",
       "initial",
@@ -588,7 +725,7 @@
   "column-rule-style": {
     "type": "enum",
     "desc": "The column-rule-style property specifies the style of the rule between columns.",
-    "enum": [
+    "options": [
       "none",
       "hidden",
       "dotted",
@@ -612,7 +749,7 @@
   "column-span": {
     "type": "enum",
     "desc": "The column-span property specifies how many columns an element should span across.",
-    "enum": [
+    "options": [
       "none",
       "all",
       "initial",
@@ -643,7 +780,7 @@
   "cursor": {
     "type": "enum",
     "desc": "The cursor property specifies the type of cursor to be displayed when pointing on an element.",
-    "enum": [
+    "options": [
       "alias",
       "all-scroll",
       "auto",
@@ -689,7 +826,7 @@
   "direction": {
     "type": "enum",
     "desc": "The direction property specifies the text direction/writing direction.",
-    "enum": [
+    "options": [
       "ltr",
       "rtl",
       "initial",
@@ -697,37 +834,10 @@
     ],
     "default": "ltr"
   },
-  "display": {
-    "type": "enum",
-    "desc": "The display property specifies the type of box used for an HTML element.",
-    "enum": [
-      "inline",
-      "block",
-      "flex",
-      "inline-block",
-      "inline-flex",
-      "inline-table",
-      "list-item",
-      "run-in",
-      "table",
-      "table-caption",
-      "table-column-group",
-      "table-header-group",
-      "table-footer-group",
-      "table-row-group",
-      "table-cell",
-      "table-column",
-      "table-row",
-      "none",
-      "initial",
-      "inherit"
-    ],
-    "default": "initial"
-  },
   "empty-cells": {
     "type": "enum",
     "desc": "The empty-cells property sets whether or not to display borders and background on empty cells in a table (only for the \"separated borders\" model).",
-    "enum": [
+    "options": [
       "show",
       "hide",
       "initial",
@@ -753,7 +863,7 @@
   "flex-direction": {
     "type": "enum",
     "desc": "The flex-direction property specifies the direction of the flexible items.",
-    "enum": [
+    "options": [
       "row",
       "row-reverse",
       "column",
@@ -781,7 +891,7 @@
   "flex-wrap": {
     "type": "enum",
     "desc": "The flex-wrap property specifies whether the flexible items should wrap or not.",
-    "enum": [
+    "options": [
       "nowrap",
       "wrap",
       "wrap-reverse",
@@ -789,18 +899,6 @@
       "inherit"
     ],
     "default": "nowrap"
-  },
-  "float": {
-    "type": "enum",
-    "desc": "The float property specifies whether or not a box (an element) should float.",
-    "enum": [
-      "none",
-      "left",
-      "right",
-      "initial",
-      "inherit"
-    ],
-    "default": "none"
   },
   "font": {
     "type": "font-style font-variant font-weight font-size/line-height font-family|caption|icon|menu|message-box|small-caption|status-bar",
@@ -825,7 +923,7 @@
   "font-stretch": {
     "type": "enum",
     "desc": "The font-stretch property allows you to make text wider or narrower.",
-    "enum": [
+    "options": [
       "ultra-condensed",
       "extra-condensed",
       "condensed",
@@ -843,7 +941,7 @@
   "font-style": {
     "type": "enum",
     "desc": "The font-style property specifies the font style for a text.",
-    "enum": [
+    "options": [
       "normal",
       "italic",
       "oblique",
@@ -855,7 +953,7 @@
   "font-variant": {
     "type": "enum",
     "desc": "The font-style property specifies the font style for a text.",
-    "enum": [
+    "options": [
       "normal",
       "small-caps",
       "initial",
@@ -868,15 +966,10 @@
     "desc": "The font-weight property sets how thick or thin characters in text should be displayed.",
     "default": "normal"
   },
-  "height": {
-    "type": "auto|length|%",
-    "desc": "The height property sets the height of an element.",
-    "default": "auto"
-  },
   "justify-content": {
     "type": "enum",
     "desc": "The justify-content property aligns the flexible container's items when the items do not use all available space on the main-axis (horizontally).",
-    "enum": [
+    "options": [
       "flex-start",
       "flex-end",
       "center",
@@ -897,11 +990,6 @@
     "desc": "The letter-spacing property increases or decreases the space between characters in a text.",
     "default": "normal"
   },
-  "line-height": {
-    "type": "normal|number|length|%",
-    "desc": "The line-height property specifies the line height.",
-    "default": "normal"
-  },
   "list-style": {
     "type": "list-style-type list-style-position list-style-image",
     "desc": "The list-style shorthand property sets all the list properties in one declaration.",
@@ -915,7 +1003,7 @@
   "list-style-position": {
     "type": "enum",
     "desc": "The justify-content property aligns the flexible container's items when the items do not use all available space on the main-axis (horizontally).",
-    "enum": [
+    "options": [
       "inside",
       "outside",
       "initial",
@@ -926,7 +1014,7 @@
   "list-style-type": {
     "type": "enum",
     "desc": "The list-style-type specifies the type of list-item marker in a list.",
-    "enum": [
+    "options": [
       "disc",
       "armenian",
       "circle",
@@ -953,51 +1041,6 @@
       "inherit"
     ],
     "default": "disc"
-  },
-  "margin": {
-    "type": "any",
-    "desc": "The margin shorthand property sets all the margin properties in one declaration. This property can have from one to four values.",
-    "default": 0
-  },
-  "margin-bottom": {
-    "type": "length|%|auto",
-    "desc": "The margin-bottom property sets the bottom margin of an element.",
-    "default": 0
-  },
-  "margin-left": {
-    "type": "length|%|auto",
-    "desc": "The margin-left property sets the left margin of an element.",
-    "default": 0
-  },
-  "margin-right": {
-    "type": "length|%|auto",
-    "desc": "The margin-right property sets the right margin of an element.",
-    "default": 0
-  },
-  "margin-top": {
-    "type": "length|%|auto",
-    "desc": "The margin-top property sets the top margin of an element.",
-    "default": 0
-  },
-  "max-height": {
-    "type": "none|length|%",
-    "desc": "The max-height property is used to set the maximum height of an element.",
-    "default": "none"
-  },
-  "max-width": {
-    "type": "none|length|%",
-    "desc": "The max-width property is used to set the maximum width of an element.",
-    "default": "none"
-  },
-  "min-height": {
-    "type": "none|length|%",
-    "desc": "The min-height property is used to set the minimum height of an element.",
-    "default": "none"
-  },
-  "min-width": {
-    "type": "none|length|%",
-    "desc": "The min-width property is used to set the minimum width of an element.",
-    "default": "none"
   },
   "nav-down": {
     "type": "auto|id|target-name",
@@ -1052,7 +1095,7 @@
   "outline-style": {
     "type": "enum",
     "desc": "The outline-style property specifies the style of an outline",
-    "enum": [
+    "options": [
       "none",
       "hidden",
       "dotted",
@@ -1076,7 +1119,7 @@
   "overflow": {
     "type": "enum",
     "desc": "The overflow property specifies what happens if content overflows an element's box.",
-    "enum": [
+    "options": [
       "visible",
       "hidden",
       "scroll",
@@ -1089,7 +1132,7 @@
   "overflow-x": {
     "type": "enum",
     "desc": "The overflow-x property specifies what to do with the left/right edges of the content - if it overflows the element's content area.",
-    "enum": [
+    "options": [
       "visible",
       "hidden",
       "scroll",
@@ -1102,7 +1145,7 @@
   "overflow-y": {
     "type": "enum",
     "desc": "The overflow-y property specifies what to do with the top/bottom edges of the content - if it overflows the element's content area.",
-    "enum": [
+    "options": [
       "visible",
       "hidden",
       "scroll",
@@ -1112,35 +1155,10 @@
     ],
     "default": "visible"
   },
-  "padding": {
-    "type": "any",
-    "desc": "The padding shorthand property sets all the padding properties in one declaration. This property can have from one to four values.",
-    "default": 0
-  },
-  "padding-bottom": {
-    "type": "length|%",
-    "desc": "The padding-bottom property sets the bottom padding (space) of an element.",
-    "default": 0
-  },
-  "padding-left": {
-    "type": "length|%",
-    "desc": "The padding-left property sets the left padding (space) of an element.",
-    "default": 0
-  },
-  "padding-right": {
-    "type": "length|%",
-    "desc": "The padding-right property sets the right padding (space) of an element.",
-    "default": 0
-  },
-  "padding-top": {
-    "type": "length|%",
-    "desc": "The padding-top property sets the top padding (space) of an element.",
-    "default": 0
-  },
   "page-break-after": {
     "type": "enum",
     "desc": "The page-break-after property sets whether a page break should occur AFTER a specified element.",
-    "enum": [
+    "options": [
       "auto",
       "always",
       "avoid",
@@ -1154,7 +1172,7 @@
   "page-break-before": {
     "type": "enum",
     "desc": "The page-break-before property sets whether a page break should occur BEFORE a specified element.",
-    "enum": [
+    "options": [
       "auto",
       "always",
       "avoid",
@@ -1168,7 +1186,7 @@
   "page-break-inside": {
     "type": "enum",
     "desc": "The page-break-inside property sets whether a page break is allowed inside a specified element.",
-    "enum": [
+    "options": [
       "auto",
       "avoid",
       "initial",
@@ -1186,19 +1204,6 @@
     "desc": "The perspective-origin property defines where a 3D element is based in the x- and the y-axis. This property allows you to change the bottom position of 3D elements.",
     "default": "50% 50%"
   },
-  "position": {
-    "type": "enum",
-    "desc": "The position property specifies the type of positioning method used for an element (static, relative, absolute or fixed).",
-    "enum": [
-      "static",
-      "absolute",
-      "fixed",
-      "relative",
-      "initial",
-      "inherit"
-    ],
-    "default": "static"
-  },
   "quotes": {
     "type": "none|string",
     "desc": "The quotes property sets the type of quotation marks for quotations.",
@@ -1207,7 +1212,7 @@
   "resize": {
     "type": "enum",
     "desc": "The resize property specifies whether or not an element is resizable by the user.",
-    "enum": [
+    "options": [
       "none",
       "both",
       "horizontal",
@@ -1230,7 +1235,7 @@
   "table-layout": {
     "type": "enum",
     "desc": "The table-layout property sets the table layout algorithm to be used for a table.",
-    "enum": [
+    "options": [
       "auto",
       "fixed",
       "initial",
@@ -1241,7 +1246,7 @@
   "text-align": {
     "type": "enum",
     "desc": "The text-align property specifies the horizontal alignment of text in an element.",
-    "enum": [
+    "options": [
       "left",
       "right",
       "center",
@@ -1254,7 +1259,7 @@
   "text-align-last": {
     "type": "enum",
     "desc": "The text-align-last property specifies how to align the last line of a text.",
-    "enum": [
+    "options": [
       "auto",
       "left",
       "right",
@@ -1270,7 +1275,7 @@
   "text-decoration": {
     "type": "enum",
     "desc": "The text-decoration property specifies the decoration added to text.",
-    "enum": [
+    "options": [
       "none",
       "underline",
       "overline",
@@ -1288,7 +1293,7 @@
   "text-decoration-line": {
     "type": "enum",
     "desc": "The text-decoration-line property specifies what type of line, if any, the decoration will have.",
-    "enum": [
+    "options": [
       "none",
       "underline",
       "overline",
@@ -1301,7 +1306,7 @@
   "text-decoration-style": {
     "type": "enum",
     "desc": "The text-decoration-style property specifies how the line, if any, will display.",
-    "enum": [
+    "options": [
       "solid",
       "double",
       "dotted",
@@ -1320,7 +1325,7 @@
   "text-justify": {
     "type": "enum",
     "desc": "The text-justify property specifies the justification method to use when text-align is set to \"justify\".",
-    "enum": [
+    "options": [
       "auto",
       "inter-word",
       "inter-ideograph",
@@ -1336,7 +1341,7 @@
   "text-overflow": {
     "type": "enum",
     "desc": "The text-overflow property specifies how overflowed content that is not displayed should be signaled to the user.",
-    "enum": [
+    "options": [
       "clip",
       "ellipsis",
       "string",
@@ -1353,7 +1358,7 @@
   "text-transform": {
     "type": "enum",
     "desc": "The text-transform property controls the capitalization of text.",
-    "enum": [
+    "options": [
       "none",
       "capitalize",
       "uppercase",
@@ -1381,7 +1386,7 @@
   "transform-style": {
     "type": "enum",
     "desc": "The transform-style property specifies how nested elements are rendered in 3D space.",
-    "enum": [
+    "options": [
       "flat",
       "preserve-3d",
       "initial",
@@ -1417,7 +1422,7 @@
   "unicode-bidi": {
     "type": "enum",
     "desc": "The unicode-bidi property is used together with the direction property to set or return whether the text should be overridden to support multiple languages in the same document.",
-    "enum": [
+    "options": [
       "normal",
       "embed",
       "bidi-override",
@@ -1429,7 +1434,7 @@
   "user-select": {
     "type": "enum",
     "desc": "The user-select property specifies whether the text of an element can be selected.",
-    "enum": [
+    "options": [
       "auto",
       "none",
       "text",
@@ -1440,7 +1445,7 @@
   "vertical-align": {
     "type": "enum",
     "desc": "The vertical-align property sets the vertical alignment of an element.",
-    "enum": [
+    "options": [
       "baseline",
       "length",
       "sub",
@@ -1458,7 +1463,7 @@
   "visibility": {
     "type": "enum",
     "desc": "The visibility property specifies whether or not an element is visible.",
-    "enum": [
+    "options": [
       "visible",
       "hidden",
       "collapse",
@@ -1470,7 +1475,7 @@
   "white-space": {
     "type": "enum",
     "desc": "The white-space property specifies how white-space inside an element is handled.",
-    "enum": [
+    "options": [
       "normal",
       "nowrap",
       "pre",
@@ -1481,15 +1486,10 @@
     ],
     "default": "normal"
   },
-  "width": {
-    "type": "auto|length|%",
-    "desc": "The width property sets the width of an element.",
-    "default": "auto"
-  },
   "word-break": {
     "type": "enum",
     "desc": "The word-break property specifies line breaking rules for non-CJK scripts.",
-    "enum": [
+    "options": [
       "normal",
       "break-all",
       "keep-all",
@@ -1506,7 +1506,7 @@
   "word-wrap": {
     "type": "enum",
     "desc": "The word-wrap property allows long words to be able to be broken and wrap onto the next line.",
-    "enum": [
+    "options": [
       "normal",
       "break-word",
       "initial",

@@ -37,7 +37,7 @@ export default class TagSelectModal extends PromiseModal {
         <Head>
           <link href="https://cdn.bootcss.com/react-select/1.0.0-rc.5/react-select.min.css" rel="stylesheet" />
         </Head>
-        <label>基础标签：</label>
+        <label>basic tags:</label>
         <Select2
           options={tagKeys.map(k => {
             return {
@@ -54,7 +54,7 @@ export default class TagSelectModal extends PromiseModal {
             }
           }} />
         <hr />
-        <label>其他组件：</label>
+        <label>components:</label>
         <ComponentSelect onChange={(tag) => {
           if (tag) {
             resolve(tag.value)
