@@ -7,15 +7,14 @@ import PromiseModal from '../modal/PromiseModal'
 import tags from '../../static/editor/tags'
 import ComponentSelect from './ComponentSelect'
 
-const tagKeys = Object.keys(tags)
-
 export default class TagSelectModal extends PromiseModal {
 
   constructor(props) {
     super(props)
     this.state = {
       ...this.state,
-      selected: 'text'
+      selected: 'text',
+      filterType: undefined,
     }
   }
 
@@ -25,12 +24,20 @@ export default class TagSelectModal extends PromiseModal {
     })
   }
 
+  onShow(obj = {}) {
+    const { filterType } = obj
+    if (filterType) {
+      this.setState({ filterType })
+    }
+  }
+
   getConfig() {
     const handleChangeSelect = this.handleChangeSelect.bind(this)
-    const { selected } = this.state
+    const { selected, filterType } = this.state
     const reject = this.getReject()
     const resolve = this.getResolve()
 
+    const tagKeys = filterType ? Object.keys(tags).filter((x) => tags[x].type == filterType) : Object.keys(tags)
     return {
       headerContent: (<Modal.Title>Choose Tag</Modal.Title>),
       bodyContent: (<div>
@@ -53,13 +60,15 @@ export default class TagSelectModal extends PromiseModal {
               resolve(tag.value)
             }
           }} />
-        <hr />
-        <label>components:</label>
-        <ComponentSelect onChange={(tag) => {
-          if (tag) {
-            resolve(tag.value)
-          }
-        }} />
+        {!filterType && (<div>
+          <hr />
+          <label>components:</label>
+          <ComponentSelect onChange={(tag) => {
+            if (tag) {
+              resolve(tag.value)
+            }
+          }} />
+        </div>)}
       </div>),
       footerContent: (<div>
         <Button onClick={reject}>Cancle</Button>

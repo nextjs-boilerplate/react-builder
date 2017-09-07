@@ -43,12 +43,12 @@ export const setJSON = (json, path) => {
 
 // helpers
 export function getPath(obj, pathStr) {
-  if(!pathStr) return obj
-    
+  if (!pathStr) return obj
+
   const pathArr = pathStr.split('.')
   var tmp = obj
   return pathArr.reduce((tmp, p) => {
-    if(tmp === null) return null
+    if (tmp === null) return null
     if (typeof tmp[p] === 'undefined') return null
     return tmp[p]
   }, obj)
@@ -64,16 +64,19 @@ export function getPath(obj, pathStr) {
  * @returns 
  */
 export function pathMerge(obj, pathStr, toMerge) {
+  if (!pathStr) {
+    return toMerge
+  }
   const pathArr = pathStr.split('.')
   const lastPath = pathArr.pop()
-  const tobj = {...obj}
+  const tobj = { ...obj }
   const lastBranch = pathArr.reduce((o, p) => {
     !o[p] && (o[p] = {})
-    if(Array.isArray(o[p])){      
+    if (Array.isArray(o[p])) {
       o[p] = [...o[p]]
       return o[p]
     }
-    o[p] = {...o[p]}
+    o[p] = { ...o[p] }
     return o[p]
   }, tobj)
   lastBranch[lastPath] = toMerge

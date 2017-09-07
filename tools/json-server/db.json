@@ -1,14 +1,5 @@
 {
-  "atoms": [
-    {
-      "id": 1,
-      "name": "Logo"
-    },
-    {
-      "id": 2,
-      "name": "Progress"
-    }
-  ],
+  "atoms": [],
   "molecules": [],
   "organisms": [],
   "templates": [],

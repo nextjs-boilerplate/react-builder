@@ -25,7 +25,6 @@ export default class PromiseModal extends React.Component {
         show: true,
       })
     })
-
   }
 
   hide() {

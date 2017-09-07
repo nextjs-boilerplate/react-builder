@@ -43,7 +43,7 @@ class GroupPatterns extends React.Component {
 
     let createComponentError = false
     if (!/^[A-Z][\d\w]+$/.test(createComponentName)) {
-      createComponentError = `Name must match /^[A-Z][\d\w]+$/`
+      createComponentError = `Name must match /^[A-Z][\\d\\w]+$/`
     }
 
     groupPatterns && groupPatterns[group.key] && (() => {
