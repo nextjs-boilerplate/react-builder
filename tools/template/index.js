@@ -17,17 +17,23 @@ if (!fs.existsSync(filePath)) {
   fs.copySync(path.join(__dirname, 'files'), filePath)
 }
 
-var interval = setInterval(function(){
-  console.log('installing for template')
-},1000)
+var interval = setInterval(function () {
+  console.log('[template]installing for template')
+}, 1000)
 exec('npm install', { cwd: filePath }, function (err) {
   if (err) {
     throw err
   }
   clearInterval(interval)
-  exec('npm run dev', { cwd: filePath }, function (err) {
-    if (err) {
-      throw err
-    }
-  })
+  console.log('[template]npm install finished !!!')
+
+  startServer()
+
+  function startServer() {
+    console.log('[template]starting template project !!')
+    exec('npm run dev', { cwd: filePath }, function (err) {
+      console.log('[template]template project stoped !!')
+      startServer()
+    })
+  }
 })

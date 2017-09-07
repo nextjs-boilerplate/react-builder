@@ -70,7 +70,8 @@ class Edit extends Component {
         return dispatch(setJSON(newPattern, currentPatternPath))
       })
       .then(() => {
-        alert('save success')
+        $.get('http://localhost:3005/exit')
+        alert('save success, preview refreshing please wait.')
       })
       .catch((err) => {
         alert('save failed, detailed in console')

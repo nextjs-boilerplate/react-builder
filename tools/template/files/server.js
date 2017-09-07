@@ -20,6 +20,9 @@ app.prepare()
 
   //static
   server.use('/static',express.static('static'))
+  server.get('/exit',()=>{
+    process.exit()
+  })
 
   //cookie
   server.use(bodyParser.urlencoded({ extended: true }))

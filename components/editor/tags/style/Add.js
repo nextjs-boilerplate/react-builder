@@ -62,17 +62,14 @@ export default class AttrSelectModal extends PromiseModal {
             })
           }} />
         <hr />
-        <div className="form-group">
-          <label>fill value:</label>
-          <InputComponent
-            onChange={(value) => {
-              this.setState({
-                value,
-              })
-            }}
-            value={value || ''}
-          />
-        </div>
+        <InputComponent
+          onChange={(value) => {
+            this.setState({
+              value,
+            })
+          }}
+          value={value || ''}
+        />
       </div>),
       footerContent: (<div>
         {(!!selectedAttr && !!value) && (<Button bsStyle="primary" onClick={() => resolve({
