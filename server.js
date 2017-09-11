@@ -28,7 +28,6 @@ app.prepare()
     //static
     server.use('/static', express.static('static'))
     var bootstrapPath = path.dirname(path.dirname(require.resolve('bootstrap')))
-    console.log(bootstrapPath)
     server.use('/static', express.static(bootstrapPath))
 
     //cookie

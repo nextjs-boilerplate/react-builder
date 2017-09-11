@@ -20,6 +20,8 @@ app.prepare()
 
   //static
   server.use('/static',express.static('static'))
+  var bootstrapPath = path.dirname(path.dirname(require.resolve('bootstrap')))
+  server.use('/static', express.static(bootstrapPath))
   server.get('/exit',()=>{
     process.exit()
   })

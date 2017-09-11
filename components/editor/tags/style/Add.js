@@ -61,15 +61,18 @@ export default class AttrSelectModal extends PromiseModal {
               selectedAttr: undefined
             })
           }} />
-        <hr />
-        <InputComponent
-          onChange={(value) => {
-            this.setState({
-              value,
-            })
-          }}
-          value={value || ''}
-        />
+        {!!selectedAttr && (<div>
+          <hr />
+          <InputComponent
+            onChange={(value) => {
+              this.setState({
+                value,
+              })
+            }}
+            value={value || ''}
+            cssProperty={attrlist[selectedAttr]}
+          />
+        </div>)}
       </div>),
       footerContent: (<div>
         {(!!selectedAttr && !!value) && (<Button bsStyle="primary" onClick={() => resolve({

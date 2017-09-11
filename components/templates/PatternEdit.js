@@ -2,6 +2,7 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { Button } from 'react-bootstrap'
+import $ from 'jquery'
 
 import FakeTagContainer from '../editor/FakeTagContainer'
 import { currentEditorFakeTagRootPath, currentEditorFakeTagRelativePath } from '../editor/define'
