@@ -7,6 +7,7 @@ import $ from 'jquery'
 import FakeTagContainer from '../editor/FakeTagContainer'
 import { currentEditorFakeTagRootPath, currentEditorFakeTagRelativePath } from '../editor/define'
 import Property from '../editor/Property'
+import JsonEditor from '../editor/datas'
 import { currentPatternPath, update } from '../../tools/store/components'
 import { getPath, setJSON } from '../../tools/store/json'
 import Preview from '../organisms/Preview'
@@ -54,7 +55,7 @@ class Edit extends Component {
           <Preview pattern={pattern} />
         </div>
         <div className="col-xs-4">
-
+          <JsonEditor />
         </div>
       </div>
     </div>)
