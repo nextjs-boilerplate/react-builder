@@ -48,8 +48,8 @@ export function getPath(obj, pathStr) {
   const pathArr = pathStr.split('.')
   var tmp = obj
   return pathArr.reduce((tmp, p) => {
-    if (tmp === null) return null
-    if (typeof tmp[p] === 'undefined') return null
+    if (typeof tmp === 'undefined') return undefined
+    if (typeof tmp[p] === 'undefined') return undefined
     return tmp[p]
   }, obj)
 }

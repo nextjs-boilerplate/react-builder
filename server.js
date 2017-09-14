@@ -29,6 +29,7 @@ app.prepare()
     server.use('/static', express.static('static'))
     var bootstrapPath = path.dirname(path.dirname(require.resolve('bootstrap')))
     server.use('/static', express.static(bootstrapPath))
+    server.use('/download-project',require('./tools/download-project'))
 
     //cookie
     server.use(bodyParser.urlencoded({ extended: true }))

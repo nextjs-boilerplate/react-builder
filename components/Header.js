@@ -33,6 +33,9 @@ class Header extends React.Component {
           </Navbar.Header>
           <ul className="nav navbar-nav">
             <li role="presentation">
+              <a href="/download-project" target="_blank" role="button">Zip Project</a>
+            </li>
+            <li role="presentation">
               <Link route={'about'} prefetch><a href="#" role="button">About</a></Link>
             </li>
           </ul>

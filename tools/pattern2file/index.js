@@ -64,9 +64,9 @@ export default (pattern) => {
     }).join("\n\r")
 
     return `${relyStr} 
-export default ()=>(${jsx})`
+export default (props)=>(${jsx})`
 
   } else {
-    return `export default ()=>(${rtn})`
+    return `export default (props)=>(${rtn})`
   }
 }
