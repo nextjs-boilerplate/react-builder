@@ -25,7 +25,7 @@ const writeComponent = (pattern) => {
   const { type, dom, name } = pattern
   const filePath = `components/${type}s/${name}.js`
   return write(filePath, pattern2file(pattern)).then(() => {
-    const filePath = `pages/_builder/${type}s/${name.toLowerCase()}.js`
+    const filePath = (type === 'page') ? `pages/${name.toLowerCase()}.js` : `pages/_builder/${type}s/${name.toLowerCase()}.js`
     return write(filePath, pattern2previewfile(pattern))
   })
 }

@@ -1,6 +1,6 @@
 export default ({ pattern = {} }) => {
   const { type, name = '' } = pattern
-  const path = type === 'page' ? `${name.toLowerCase()}` : `_builder/${type}s/${name.toLowerCase()}`
+  const path = (type === 'page') ? `${name.toLowerCase()}` : `_builder/${type}s/${name.toLowerCase()}`
   return (
     <iframe
       src={`http://localhost:3005/${path}`}
