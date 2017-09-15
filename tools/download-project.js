@@ -20,7 +20,7 @@ module.exports = (req, res, next) => {
     })
     return true
   })).then(() => {
-    //拷贝
+    //拷贝整个项目
     return fs.copy(tmplPath, targetPath)
   }).then(() => {
     //剔除pages/_builder
