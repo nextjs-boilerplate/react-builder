@@ -29,45 +29,45 @@ start http://localhost:3003
 
 ### automic design
 
-[automic design screenshot](./docs/images/atomic-design.png)
+![automic design screenshot](./docs/images/atomic-design.png)
 
 ### editor and preview
 
 Although prevew comes a little slow, better continue your work and do not wait
 
-[editor and preview screenshot](./docs/images/editor-preview.png)
+![editor and preview screenshot](./docs/images/editor-preview.png)
 
 ### component nesting and html nesting
 
 Html nesting, showing tag meaning for better semantic html
 
-[Html nesting screenshot](./docs/images/nesting1.png)
+![Html nesting screenshot](./docs/images/nesting1.png)
 
 Component nesting, for component reuse
 
-[Component nesting screenshot](./docs/images/nesting2.png)
+![Component nesting screenshot](./docs/images/nesting2.png)
 
 ### html element attribute and style edit and bootstrap
 
 Add className
 
-[Add className screenshot](./docs/images/attribute.png)
+![Add className screenshot](./docs/images/attribute.png)
 
 Add style
 
-[Add style screenshot](./docs/images/style.png)
+![Add style screenshot](./docs/images/style.png)
 
 ### props through json config
 
 JSON props
 
-[JSON props screenshot](./docs/images/json-props.png)
+![JSON props screenshot](./docs/images/json-props.png)
 
 ### export react project
 
 Pack project and download, the exported project is based on next.js
 
-[Pack project and download screenshot](./docs/images/project-download.png)
+![Pack project and download screenshot](./docs/images/project-download.png)
 
 To run the exported project, make sure you have `Index` component in your `pages`
 
