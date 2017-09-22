@@ -4,7 +4,12 @@ const getAttributeString = (dom) => {
   var str = ''
 
   if (dom.attributes && Object.keys(dom.attributes).length) {
-    str += Object.keys(dom.attributes).map((k) => `${k}="${dom.attributes[k]}"`).join(' ')
+    const { type = '' } = dom
+    if (type === 'component') {
+      str += Object.keys(dom.attributes).map((k) => `${k}={${dom.attributes[k]}}`).join(' ')
+    } else {
+      str += Object.keys(dom.attributes).map((k) => `${k}="${dom.attributes[k]}"`).join(' ')
+    }
   }
 
   if (dom.styles && Object.keys(dom.styles).length) {
@@ -24,7 +29,8 @@ const getDomHtml = (dom) => {
   if (type === 'component') {
     const { type = '', name = '' } = component
     const tagRename = `${type.toUpperCase()}_${name}`
-    return [`<${tagRename} />`, {
+    const attributes = getAttributeString(dom)
+    return [`<${tagRename} ${attributes}/>`, {
       [type]: {
         [name]: tagRename
       }
