@@ -30,12 +30,12 @@ export default class AttrSelectModal extends PromiseModal {
     const resolve = this.getResolve()
 
     return {
-      headerContent: (<Modal.Title>Add Component Attribute</Modal.Title>),
+      headerContent: (<Modal.Title>Add Component Props</Modal.Title>),
       bodyContent: (<div>
         <Head>
           <link href="https://cdn.bootcss.com/react-select/1.0.0-rc.5/react-select.min.css" rel="stylesheet" />
         </Head>
-        <label>Add Component Attribute:</label>
+        <label>Add Component Props:</label>
         <input
           value={selectedAttr}
           onChange={(e) => {
@@ -62,7 +62,7 @@ export default class AttrSelectModal extends PromiseModal {
       footerContent: (<div>
         {(!!selectedAttr && !!value) && (<Button bsStyle="primary" onClick={() => resolve({
           [selectedAttr]: value,
-        })}>Add attribute</Button>)}
+        })}>Add Prop</Button>)}
         <Button onClick={reject}>Cancle</Button>
       </div>),
     }

@@ -6,6 +6,7 @@ import { setJSON, getPath, pathMerge } from '../../tools/store/json'
 import { tagTypes, currentEditorFakeTagRootPath, currentEditorFakeTagRelativePath } from './define'
 import getTagEditor from './tags'
 import TagSelectModal from './TagSelectModal'
+import LogicEdit from './tags/logic'
 
 class Property extends Component {
   constructor(props) {
@@ -32,9 +33,16 @@ class Property extends Component {
       dispatch(setJSON(newRoot, currentEditorFakeTagRootPath))
     }
 
+    const { logic = '', tag = '' } = pathData
+
     return (<Panel header={`Element Path: /${path}`}>
       <TagEditor onChange={onChange} tagData={pathData} />
       {!!path && (<div>
+        {tag !== 'text' && <div>
+          <hr />
+          <p>logic:</p>
+          <LogicEdit logic={logic} onChange={onChange} />
+        </div>}
         <hr />
         <Button onClick={onDelete}>delete</Button>
       </div>)}
@@ -42,7 +50,7 @@ class Property extends Component {
       {!path && (<div>
         <hr />
         <Button onClick={() => this.tagSelect.show({ filterType: 'container' }).then((obj) => {
-          console.log(obj,pathData)
+          console.log(obj, pathData)
           onChange(path, {
             ...pathData,
             ...obj,
