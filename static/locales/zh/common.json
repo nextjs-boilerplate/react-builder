@@ -1,7 +1,6 @@
 {
-  "Home": "首页",
+  "Zip Project": "打包项目",
   "About": "关于",
-  "Login": "登录",
-  "Logout": "登出",
-  "Posts": "文章"
+  "Save": "保存",
+  "Back": "返回"
 }

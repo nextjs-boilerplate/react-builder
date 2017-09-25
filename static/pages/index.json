@@ -4,7 +4,7 @@
       "title": "Atoms",
       "key": "atom",
       "contains": [],
-      "description": "Atoms are the basic building blocks of all matter. Each chemical element has distinct properties, and they can’t be broken down further without losing their meaning"
+      "description": "atom_desc"
     },
     {
       "title": "Molecules",
@@ -12,7 +12,7 @@
       "contains": [
         "atom"
       ],
-      "description": "Molecules are groups of two or more atoms held together by chemical bonds. These combinations of atoms take on their own unique properties, and become more tangible and operational than atoms"
+      "description": "molecule_desc"
     },
     {
       "title": "Organisms",
@@ -21,7 +21,7 @@
         "atom",
         "molecule"
       ],
-      "description": "Organisms are assemblies of molecules functioning together as a unit. These relatively complex structures can range from single-celled organisms all the way up to incredibly sophisticated organisms like human beings."
+      "description": "organism_desc"
     },
     {
       "title": "Templates",
@@ -31,7 +31,7 @@
         "molecule",
         "organism"
       ],
-      "description": "Templates place components within a layout and demonstrate the design’s underlying content structure"
+      "description": "template_desc"
     },
     {
       "title": "Pages",
@@ -43,7 +43,7 @@
         "template"
       ],
       "final": true,
-      "description": "Pages apply real content to templates and articulate variations to demonstrate the final UI and test the resilience of the design system"
+      "description": "page_desc"
     }
   ]
 }

@@ -33,17 +33,14 @@ class Header extends React.Component {
           </Navbar.Header>
           <ul className="nav navbar-nav">
             <li role="presentation">
-              <a href="/download-project" target="_blank" role="button">Zip Project</a>
+              <a href="/download-project" target="_blank" role="button">{t('Zip Project')}</a>
             </li>
             <li role="presentation">
-              <Link route={'about'} prefetch><a href="#" role="button">About</a></Link>
+              <Link route={'about'} prefetch><a href="#" role="button">{t('About')}</a></Link>
             </li>
           </ul>
           <Nav className="pull-right" style={{ marginRight: 15 }}>
-            <NavDropdown eventKey={3} title="Language" id="basic-nav-dropdown">
-              <MenuItem eventKey={3.1}>English</MenuItem>
-              <MenuItem eventKey={3.2}>中文</MenuItem>
-            </NavDropdown>
+            <Language />
           </Nav>
         </Navbar>
         <p>{JSON.stringify(user)}</p>

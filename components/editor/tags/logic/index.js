@@ -7,10 +7,10 @@ const examples = [
     code: '!!props.show&&<%= element %>',
   }, {
     type: 'loop',
-    code: 'prpos.list.map((x,i)=><li key={i}><%= element %></li>)',
+    code: 'props.list.map((x,i)=><li key={i}><%= element %></li>)',
   }, {
     type: 'custom',
-    code: '(()=>prpos.list.filter((x)=>x.show&&!x.ignore).map(x=><li key={x.id}><%= element %></li>))()',
+    code: '(()=>props.list.filter((x)=>x.show&&!x.ignore).map(x=><li key={x.id}><%= element %></li>))()',
   },
 ]
 

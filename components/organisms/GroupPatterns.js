@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
+import { translate } from 'react-i18next'
 import { Panel, OverlayTrigger, Tooltip, SplitButton, MenuItem, Button, FormGroup, InputGroup, FormControl } from 'react-bootstrap'
 import Router from 'next/router'
 
@@ -37,7 +38,7 @@ class GroupPatterns extends React.Component {
   }
 
   render() {
-    const { group, groupPatterns, dispatch } = this.props
+    const { group, groupPatterns, dispatch, t } = this.props
     const { createComponentName } = this.state
     const handleCreateComponentChange = this.handleCreateComponentChange.bind(this)
 
@@ -53,7 +54,7 @@ class GroupPatterns extends React.Component {
     })
 
 
-    return (<Panel header={`Your ${group.title}:`}>
+    return (<Panel header={t('my_components', { type: group.title })}>
       {!!groupPatterns && !!groupPatterns[group.key] && groupPatterns[group.key].map((pattern) => {
         const tooltip = (
           <Tooltip id="tooltip">{pattern.description || pattern.name}</Tooltip>
@@ -78,7 +79,7 @@ class GroupPatterns extends React.Component {
           </OverlayTrigger>
         </div>
       })}
-      {!groupPatterns && <p>You don't have any {group.title} yet.</p>}
+      {(!!groupPatterns && !!groupPatterns[group.key] && groupPatterns[group.key] && !groupPatterns[group.key].length) && <p>{t('you_dont_have', { type: group.title })}</p>}
       <hr />
       <FormGroup className={createComponentError ? 'has-error' : ''} >
         <InputGroup>
@@ -92,7 +93,7 @@ class GroupPatterns extends React.Component {
                 name: createComponentName,
                 type: group.key,
               }, dispatch)}
-            >Create new {group.title}</Button>
+            >{t('create_component', { type: group.title })}</Button>
           </InputGroup.Button>
         </InputGroup>
         {createComponentError && <span className="help-block">{createComponentError}</span>}
@@ -101,8 +102,8 @@ class GroupPatterns extends React.Component {
   }
 }
 
-export default connect(state => {
+export default translate(['index'])(connect(state => {
   return {
     groupPatterns: getPath(state, patternsPath),
   }
-})(GroupPatterns)
+})(GroupPatterns))

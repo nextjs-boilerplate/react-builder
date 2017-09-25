@@ -1,6 +1,7 @@
 
 
 import { connect } from 'react-redux'
+import { translate } from 'react-i18next'
 import { Grid, Row, Col, Panel, ListGroup, ListGroupItem } from 'react-bootstrap'
 import GroupPatterns from '../organisms/GroupPatterns'
 
@@ -11,7 +12,7 @@ import { setJSON, getPath } from '../../tools/store/json'
 const currentPatternGroupPath = 'app.global.current.patternGroup'
 
 const Index = (props) => {
-  const { dispatch, currentPatternGroup } = props
+  const { dispatch, currentPatternGroup, t } = props
   const setCurrentPatternGroup = (g) => {
     if (currentPatternGroup && currentPatternGroup.key === g.key) {
       dispatch(setJSON(null, currentPatternGroupPath))
@@ -28,7 +29,7 @@ const Index = (props) => {
               return (currentPatternGroup && currentPatternGroup.key === patternGroup.key) ?
                 <ListGroupItem key={patternGroup.key} header={patternGroup.title} onClick={
                   () => setCurrentPatternGroup(patternGroup)
-                }>{patternGroup.description}</ListGroupItem> :
+                }>{t(patternGroup.description)}</ListGroupItem> :
                 <ListGroupItem key={patternGroup.key} onClick={
                   () => setCurrentPatternGroup(patternGroup)
                 }>{patternGroup.title}</ListGroupItem>
@@ -48,4 +49,4 @@ export default connect(state => {
   return {
     currentPatternGroup: getPath(state, currentPatternGroupPath),
   }
-})(Index)
+})(translate(['index'])(Index))

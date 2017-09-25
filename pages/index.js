@@ -16,6 +16,8 @@ const Index = (props) => {
   return (<PatternList />)
 }
 
+Index.translateNS = ['index']
+
 export default Layout(connect(state => {
   return {
     pattern: getPath(state, currentPatternPath)
