@@ -21,7 +21,7 @@ export function getAttributeString(dom) {
 
 
 export function getLogicHtml(logic, html) {
-  if (!dom.logic) {
+  if (!logic) {
     return html
   }
   const compiled = template(logic)
