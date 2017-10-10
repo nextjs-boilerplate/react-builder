@@ -13,7 +13,7 @@ require('./tools/template')
 //fs-server
 require('./tools/fs-api')
 
-const dev = process.env.NODE_ENV !== 'production'
+const dev = process.env.NODE_ENV !== 'productionbuilder'
 const app = next({ dev })
 
 
