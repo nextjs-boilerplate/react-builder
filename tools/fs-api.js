@@ -22,7 +22,7 @@ var config = {
       cert: false
   },
   // Port designation
-  port: 3006,
+  port: 3010,
   // Base directory
   base: require('path').join(__dirname,'..','.builder','template'),
   // Default create mode

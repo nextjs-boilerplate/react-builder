@@ -35,9 +35,9 @@ app.prepare()
   server.use(handle)
 
   //http
-  server.listen(3005, (err) => {
+  server.listen(3009, (err) => {
     if (err) throw err
-    console.log('> Ready http on http://localhost:3005')
+    console.log('> Ready http on http://localhost:3009')
   })
 })
 .catch((ex) => {

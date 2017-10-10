@@ -47,7 +47,7 @@
     "react-redux": "^5.0.5",
     "react-select": "^1.0.0-rc.5",
     "react-tree-renderer": "^1.0.2",
-    "restify": "^2.8.5",
+    "restify": "4.3.0",
     "spdy": "^3.4.7",
     "zip-folder": "^1.0.0"
   }

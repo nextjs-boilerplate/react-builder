@@ -73,7 +73,7 @@ class Edit extends Component {
         return dispatch(setJSON(newPattern, currentPatternPath))
       })
       .then(() => {
-        $.get(`http://${config.host}:3005/exit`)
+        $.get(`http://${config.host}:3009/exit`)
         alert('save success, preview refreshing please wait.')
       })
       .catch((err) => {

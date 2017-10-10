@@ -13,7 +13,7 @@ git clone https://github.com/postor/react-builder.git
 cd react-builder
 npm install
 npm run dev
-start http://localhost:3003
+start http://localhost:3008
 ```
 
 ## Features

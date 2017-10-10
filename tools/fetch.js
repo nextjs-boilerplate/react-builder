@@ -31,7 +31,7 @@ export function getContextedFetch({ req, res }) {
 }
 
 export function apiUrls(path) {
-  return `http://${config.host}:3004${path}`
+  return `http://${config.host}:3007${path}`
 }
 
 export function postJSON(url, data, method = 'POST') {

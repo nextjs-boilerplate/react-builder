@@ -22,6 +22,6 @@ const middlewares = jsonServer.defaults()
 
 server.use(middlewares)
 server.use(router)
-server.listen(3004, () => {
-  console.log('JSON Server is running on port 3004')
+server.listen(3007, () => {
+  console.log('JSON Server is running on port 3007')
 })

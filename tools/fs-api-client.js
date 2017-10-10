@@ -4,7 +4,7 @@ import pattern2previewfile from './pattern2file/preview'
 import config from '../config'
 
 const fetch = getFetch()
-const base = `http://${config.host}:3006/builder/file`
+const base = `http://${config.host}:3010/builder/file`
 
 const write = (path, data) => {
   return fetch(`${base}/${path}`, {
