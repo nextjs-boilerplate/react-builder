@@ -20,7 +20,7 @@ if (!fs.existsSync(filePath)) {
 var interval = setInterval(function () {
   console.log('[template]installing for template')
 }, 1000)
-exec('npm install', { cwd: filePath }, function (err) {
+exec('npm install', { cwd: filePath, maxBuffer: 2 * 1024 * 1024 }, function (err) {
   if (err) {
     throw err
   }
@@ -31,7 +31,7 @@ exec('npm install', { cwd: filePath }, function (err) {
 
   function startServer() {
     console.log('[template]starting template project !!')
-    exec('npm run dev', { cwd: filePath }, function (err) {
+    exec('npm run dev', { cwd: filePath, maxBuffer: 2 * 1024 * 1024 }, function (err) {
       console.log('[template]template project stoped !!')
       startServer()
     })
