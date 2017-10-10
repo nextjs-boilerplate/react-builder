@@ -1,6 +1,11 @@
 #build
 npm install
 npm run build
+mkdir .builder
+cp tools/template/files .builder/template
+cd .builder/template/
+npm install
+cd ../../
 docker build . -t reactbuilder
 
 #run
