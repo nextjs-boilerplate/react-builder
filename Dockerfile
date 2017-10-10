@@ -1,8 +1,5 @@
 FROM node
 
-RUN git clone https://github.com/postor/react-builder.git && \
-cd react-builder && \
-npm install \
-npm run build
+ADD . /react-builder
 
-CMD npm run start
+CMD cd /react-builder && npm run start

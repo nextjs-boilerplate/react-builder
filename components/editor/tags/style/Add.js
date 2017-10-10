@@ -2,7 +2,7 @@ import React from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import Select2 from 'react-select'
 import Head from 'next/head'
-import camelCase from 'camelcase'
+import camelCase from 'camel-case'
 
 import PromiseModal from '../../../modal/PromiseModal'
 import attrlist from '../../../../static/editor/css'
