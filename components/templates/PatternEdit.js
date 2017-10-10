@@ -11,6 +11,7 @@ import JsonEditor from '../editor/datas'
 import { currentPatternPath, update } from '../../tools/store/components'
 import { getPath, setJSON } from '../../tools/store/json'
 import Preview from '../organisms/Preview'
+import config from '../../config'
 
 class Edit extends Component {
   constructor(props) {
@@ -72,7 +73,7 @@ class Edit extends Component {
         return dispatch(setJSON(newPattern, currentPatternPath))
       })
       .then(() => {
-        $.get('http://localhost:3005/exit')
+        $.get(`http://${config.host}:3005/exit`)
         alert('save success, preview refreshing please wait.')
       })
       .catch((err) => {

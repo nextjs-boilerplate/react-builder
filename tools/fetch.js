@@ -1,4 +1,5 @@
 import getFetch from 'next-fetch'
+import config from '../config'
 const cookieFetch = getFetch()
 
 /**
@@ -30,7 +31,7 @@ export function getContextedFetch({ req, res }) {
 }
 
 export function apiUrls(path) {
-  return `http://localhost:3004${path}`
+  return `http://${config.host}:3004${path}`
 }
 
 export function postJSON(url, data, method = 'POST') {
