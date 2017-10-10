@@ -1,0 +1,1 @@
+export default ()=>(<div>welcome to react builder</div>)

@@ -2,7 +2,8 @@
 yarn
 yarn build
 mkdir ./.builder
-cp ./tools/template/files ./.builder/template -r
+cp ./tools/template/files ./.builder/ -r
+mv ./.builder/files ./.builder/template
 cd ./.builder/template/
 yarn
 cd ../../

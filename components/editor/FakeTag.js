@@ -42,7 +42,7 @@ class FakeTag extends React.Component {
   }
 
   renderElement() {
-    const { data } = this.props
+    const { data = {} } = this.props
     return (<p><code onClick={this.handleSelectNode.bind(this)}>{`<${data.tag} />`}</code></p>)
   }
 
