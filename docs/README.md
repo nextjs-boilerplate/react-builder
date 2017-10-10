@@ -9,7 +9,7 @@ Before you create your react website, it's better to have a prototype to preview
 ## Usage
 
 ```
-git clone https://github.com/nextjs-boilerplate/react-builder.git
+git clone https://github.com/postor/react-builder.git
 cd react-builder
 npm install
 npm run dev
