@@ -16,7 +16,7 @@
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",
-    "camelcase": "^4.1.0",
+    "camel-case": "^3.0.0",
     "cookie-parser": "^1.4.3",
     "cross-env": "^5.0.1",
     "csurf": "^1.9.0",
