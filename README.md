@@ -11,7 +11,7 @@
 ## 使用方法
 
 ```
-git clone https://github.com/nextjs-boilerplate/react-builder.git
+git clone https://github.com/postor/react-builder.git
 cd react-builder
 npm install
 npm run dev
